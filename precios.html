@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('theme');
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<title>Precios — Vitrina | Planes para tu tienda en línea</title>
+<meta name="description" content="Conoce nuestros planes para diseñar y construir tu tienda en línea: qué incluye cada uno y cuál se ajusta mejor a tu negocio.">
+<meta property="og:title" content="Precios — Vitrina | Planes para tu tienda en línea">
+<meta property="og:description" content="Conoce nuestros planes para diseñar y construir tu tienda en línea: qué incluye cada uno y cuál se ajusta mejor a tu negocio.">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/theme.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+<header class="site-header">
+  <div class="site-header-bg" aria-hidden="true"></div>
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Vitrina, ir al inicio">
+      <span class="logo-mark" aria-hidden="true">V</span>
+      <span>Vitrina</span>
+    </a>
+
+    <div class="header-actions">
+      <button type="button" class="theme-toggle theme-toggle--mobile" aria-pressed="false" aria-label="Activar modo oscuro"></button>
+      <label class="nav-toggle" for="nav-toggle">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Abrir menú de navegación">
+        <span class="nav-toggle-bar nav-toggle-bar--top" aria-hidden="true"></span>
+        <span class="nav-toggle-bar nav-toggle-bar--mid" aria-hidden="true"></span>
+        <span class="nav-toggle-bar nav-toggle-bar--bottom" aria-hidden="true"></span>
+      </label>
+    </div>
+    <label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="index.html#nosotros">Sobre nosotros</a></li>
+        <li><a href="index.html#contacto" class="nav-cta">Contáctanos</a></li>
+        <li class="theme-toggle-item"><button type="button" class="theme-toggle theme-toggle--desktop" aria-pressed="false" aria-label="Activar modo oscuro"></button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- INTRO -->
+  <section class="section" aria-labelledby="precios-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Precios</p>
+        <h1 id="precios-heading">Un plan para cada etapa de tu negocio</h1>
+        <p>Desde tu primera tienda hasta un catálogo con múltiples bodegas: elige el punto de partida y crece cuando lo necesites.</p>
+      </div>
+
+      <ul class="precios-grid">
+        <li class="precio-card">
+          <article>
+            <p class="precio-nombre">Escaparate</p>
+            <h2>Tu primera tienda</h2>
+            <div class="precio-price">
+              <strong>$390</strong>
+              <span>pago único</span>
+            </div>
+            <p class="precio-desc">Ideal si estás dando el salto de vender por redes sociales a tener tu propia tienda.</p>
+            <ul class="precio-features">
+              <li>Hasta 30 productos</li>
+              <li>1 pasarela de pago</li>
+              <li>Diseño adaptado a tu marca</li>
+              <li>Entrega en 3 semanas</li>
+              <li>Soporte por correo</li>
+            </ul>
+            <a class="btn btn-ghost" href="index.html#contacto">Empezar con Escaparate</a>
+          </article>
+        </li>
+
+        <li class="precio-card precio-card--popular">
+          <article>
+            <span class="precio-badge">Más elegido</span>
+            <p class="precio-nombre">Vitrina</p>
+            <h2>Para crecer en serio</h2>
+            <div class="precio-price">
+              <strong>$890</strong>
+              <span>pago único</span>
+            </div>
+            <p class="precio-desc">El equilibrio entre catálogo amplio, pagos flexibles y logística automatizada.</p>
+            <ul class="precio-features">
+              <li>Hasta 150 productos con variantes</li>
+              <li>3 pasarelas de pago</li>
+              <li>Diseño 100% a medida</li>
+              <li>Envíos con cálculo automático</li>
+              <li>SEO básico configurado</li>
+              <li>Soporte prioritario por 3 meses</li>
+            </ul>
+            <a class="btn btn-primary" href="index.html#contacto">Empezar con Vitrina</a>
+          </article>
+        </li>
+
+        <li class="precio-card">
+          <article>
+            <p class="precio-nombre">Boutique a medida</p>
+            <h2>Catálogos grandes</h2>
+            <div class="precio-price">
+              <strong>Desde $1,890</strong>
+              <span>cotización según alcance</span>
+            </div>
+            <p class="precio-desc">Para operaciones con catálogos extensos, varias bodegas o sistemas que ya usas hoy.</p>
+            <ul class="precio-features">
+              <li>Catálogo ilimitado</li>
+              <li>Integraciones a medida (ERP, facturación)</li>
+              <li>Multi-bodega y logística avanzada</li>
+              <li>Entrega en 10 a 12 semanas</li>
+              <li>Gerente de proyecto dedicado</li>
+            </ul>
+            <a class="btn btn-ghost" href="index.html#contacto">Conversemos</a>
+          </article>
+        </li>
+      </ul>
+
+      <p class="precios-nota">Todos los planes incluyen dominio y hosting el primer año. Desde el segundo año, mantenimiento desde $25/mes.</p>
+    </div>
+  </section>
+
+  <!-- DETALLE: ESCAPARATE -->
+  <section class="section section-alt" aria-labelledby="detalle-escaparate-heading">
+    <div class="container">
+      <article class="caso">
+        <div class="caso-copy">
+          <p class="eyebrow">Plan Escaparate</p>
+          <h2 id="detalle-escaparate-heading">Cuando estás por abrir tu primera tienda</h2>
+          <p>Pensado para catálogos pequeños y un lanzamiento rápido: subimos tus productos, conectamos un método de pago y tu tienda queda lista para compartir.</p>
+          <p><strong>Ejemplo real:</strong> una marca de velas artesanales con 18 productos, checkout simple y notificación de pedidos por WhatsApp.</p>
+          <ul class="precio-features">
+            <li>Hasta 30 productos, sin variantes complejas</li>
+            <li>Pago por transferencia o link de pago</li>
+            <li>Una plantilla de nuestra línea gráfica, adaptada a tu marca</li>
+            <li>Panel simple para actualizar productos y precios</li>
+          </ul>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">tuescaparate.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/precio-escaparate.svg" alt="Ejemplo de catálogo del plan Escaparate: seis productos organizados en cuadrícula" loading="lazy" width="400" height="260">
+          <figcaption>Ejemplo · Catálogo de hasta 30 productos</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- DETALLE: VITRINA -->
+  <section class="section" aria-labelledby="detalle-vitrina-heading">
+    <div class="container">
+      <article class="caso caso--reverse">
+        <div class="caso-copy">
+          <p class="eyebrow">Plan Vitrina</p>
+          <h2 id="detalle-vitrina-heading">Cuando tu catálogo ya necesita variantes y logística</h2>
+          <p>Sumamos variantes de producto, más de una forma de pago y envíos que se calculan solos, para que dejes de responder "¿cuánto cuesta el envío?" uno por uno.</p>
+          <p><strong>Ejemplo real:</strong> una tienda de ropa con 120 productos, 4 variantes de talla y color cada uno, y envíos calculados automáticamente por ciudad.</p>
+          <ul class="precio-features">
+            <li>Hasta 150 productos, con talla, color u otras variantes</li>
+            <li>Tarjeta, transferencia y billeteras digitales</li>
+            <li>Inventario sincronizado por variante</li>
+            <li>Medición y SEO configurados desde el lanzamiento</li>
+          </ul>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">tuvitrina.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/precio-vitrina.svg" alt="Ejemplo de catálogo del plan Vitrina: doce productos con un producto destacado en pago" loading="lazy" width="400" height="260">
+          <figcaption>Ejemplo · Catálogo de hasta 150 productos con variantes</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- DETALLE: BOUTIQUE A MEDIDA -->
+  <section class="section section-alt" aria-labelledby="detalle-boutique-heading">
+    <div class="container">
+      <article class="caso">
+        <div class="caso-copy">
+          <p class="eyebrow">Plan Boutique a medida</p>
+          <h2 id="detalle-boutique-heading">Cuando ya vendes en varios frentes a la vez</h2>
+          <p>Diseñamos la arquitectura para catálogos grandes, varias bodegas y las herramientas que ya usas: facturación electrónica, ERP o un sistema de punto de venta.</p>
+          <p><strong>Ejemplo real:</strong> una cadena de electrodomésticos con más de 600 productos y 3 bodegas cuyo stock se sincroniza en tiempo real.</p>
+          <ul class="precio-features">
+            <li>Catálogo ilimitado, con categorías y filtros avanzados</li>
+            <li>Integraciones a medida con tus sistemas actuales</li>
+            <li>Sincronización de stock entre varias bodegas o locales</li>
+            <li>Gerente de proyecto dedicado durante todo el proceso</li>
+          </ul>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">tuboutique.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/precio-boutique.svg" alt="Ejemplo de catálogo del plan Boutique a medida: cuadrícula densa con productos destacados en varias bodegas" loading="lazy" width="400" height="260">
+          <figcaption>Ejemplo · Catálogo ilimitado y multi-bodega</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" aria-labelledby="precios-cta-heading">
+    <div class="container">
+      <div class="contacto">
+        <div class="contacto-copy">
+          <h2 id="precios-cta-heading">¿No sabes qué plan elegir?</h2>
+          <p>Cuéntanos cuántos productos tienes y cómo vendes hoy, y te recomendamos el plan que más se ajusta.</p>
+          <div class="contacto-actions">
+            <a class="btn btn-primary" href="index.html#contacto">Escríbenos</a>
+            <a class="btn btn-ghost" href="proyectos.html">Ver proyectos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-desc">
+        <h3 id="footer-desc-heading">Vitrina</h3>
+        <p aria-labelledby="footer-desc-heading">Diseñamos y construimos tiendas de e-commerce a medida, desde el catálogo hasta el pago.</p>
+      </div>
+      <nav aria-labelledby="footer-contacto-heading">
+        <h3 id="footer-contacto-heading">Contacto</h3>
+        <ul>
+          <li><a href="mailto:hola@vitrina.com">hola@vitrina.com</a></li>
+          <li><a href="tel:+593999999999">+593 99 999 9999</a></li>
+          <li><a href="index.html#contacto">Solicitar propuesta</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="footer-redes-heading">
+        <h3 id="footer-redes-heading">Redes sociales</h3>
+        <ul>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer">WhatsApp <span class="sr-only">(se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Vitrina. Todos los derechos reservados.</p>
+      <a href="#top">Volver arriba</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
