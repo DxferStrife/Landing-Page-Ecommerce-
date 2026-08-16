@@ -15,7 +15,7 @@
     --radius-lg: 22px;
     --radius-md: 14px;
     --radius-sm: 8px;
-    --maxw: 1180px;
+    --maxw: 1440px;
     --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
     --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -364,9 +364,10 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    padding-block: 40px 56px;
-    overflow: hidden;
+    min-height: 100dvh;
+    padding-block: 150px 80px;
   }
+  
   .hero-inner{
     display: grid;
     grid-template-columns: 1fr;
@@ -374,7 +375,7 @@
     align-items: center;
   }
   .hero-copy h1{
-    font-size: clamp(2.1rem, 4vw, 3.1rem);
+    font-size: clamp(3.2rem, 4vw, 4.8rem);
     color: var(--ink);
   }
   .hero-copy h1 em{
@@ -383,7 +384,7 @@
     padding-inline: 2px;
   }
   .hero-lead{
-    font-size: 1.08rem;
+    font-size: clamp(1rem, 1vw, 1.3rem);
     color: var(--ink-soft);
     max-width: 46ch;
     margin-bottom: 1.8em;
@@ -393,6 +394,28 @@
     gap: 14px;
     flex-wrap: wrap;
   }
+
+  .hero-showcase {
+    margin-right: calc(-1 * 24px);
+  }
+
+  .hero-media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  }
+
+  .hero-media img {
+    display: block;
+    width: 135%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+
 
   /* ---------- Carousel (pure CSS, radio-driven) ---------- */
   .carrusel{
@@ -886,13 +909,14 @@
   /* ---------- Responsive (mobile-first: estilos base = móvil, se amplían desde acá) ---------- */
   @media (min-width: 640px){
     .footer-grid{ grid-template-columns: 1fr 1fr; }
-    .hero{ padding-block: 64px 88px; }
+    .hero{ padding-block: 192px 88px; }
     .section{ padding-block: 76px; }
     .contacto{ padding: 56px 40px; }
     .contacto-form-wrap{ padding: 36px; margin-top: 40px; }
   }
   @media (min-width: 900px){
-    .hero-inner{ grid-template-columns: 1.05fr 1fr; gap: 56px; }
+    .hero-inner{ grid-template-columns: 1fr; gap: 56px; }
+    .hero-showcase img{width: 100%;}
     .caso{ grid-template-columns: 1fr 1fr; gap: 48px; }
     .caso-figure{ order: 0; }
     .caso--reverse .caso-figure{ order: -1; }
