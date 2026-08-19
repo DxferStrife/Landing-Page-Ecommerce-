@@ -16,8 +16,22 @@
 </script>
 <title>Vitrina — Creamos tu tienda en línea</title>
 <meta name="description" content="Vitrina diseña y construye tiendas de e-commerce a medida: catálogo, pagos y logística listos para vender desde el primer día.">
+<link rel="canonical" href="https://www.vitrina.com/index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.vitrina.com/index.html">
 <meta property="og:title" content="Vitrina — Creamos tu tienda en línea">
 <meta property="og:description" content="Vitrina diseña y construye tiendas de e-commerce a medida: catálogo, pagos y logística listos para vender desde el primer día.">
+<meta property="og:image" content="https://www.vitrina.com/img/EcommerExample.png">
+<meta property="og:image:alt" content="Vista previa de una tienda en línea creada por Vitrina">
+<meta property="og:locale" content="es_EC">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vitrina — Creamos tu tienda en línea">
+<meta name="twitter:description" content="Vitrina diseña y construye tiendas de e-commerce a medida: catálogo, pagos y logística listos para vender desde el primer día.">
+<meta name="twitter:image" content="https://www.vitrina.com/img/EcommerExample.png">
+<meta name="twitter:image:alt" content="Vista previa de una tienda en línea creada por Vitrina">
+
 <link rel="stylesheet" href="css/styles.css">
 <script src="js/theme.js" defer></script>
 <script src="js/validacion-contacto.js" defer></script>
@@ -87,6 +101,7 @@
       </div>
     </div>
   </section>
+  
 
   <!-- SERVICIOS -->
   <section id="servicios" class="section section-alt" aria-labelledby="servicios-heading">
@@ -215,15 +230,18 @@
           <form class="form-contacto" novalidate>
             <div class="form-field">
               <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="nombre-error">
+              <span class="form-error" id="nombre-error" role="alert"></span>
             </div>
             <div class="form-field">
               <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+              <span class="form-error" id="email-error" role="alert"></span>
             </div>
             <div class="form-field">
               <label for="mensaje">Cuéntanos sobre tu negocio</label>
-              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+              <textarea id="mensaje" name="mensaje" rows="5" required aria-describedby="mensaje-error"></textarea>
+              <span class="form-error" id="mensaje-error" role="alert"></span>
             </div>
             <button type="submit" class="btn btn-primary">Enviar mensaje</button>
           </form>

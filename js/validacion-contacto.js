@@ -32,6 +32,9 @@ function obtenerElementoError(campo) {
     const error = document.createElement("span");
     error.className = "form-error";
     error.setAttribute("role", "alert");
+    const describedById = campo.getAttribute("aria-describedby");
+    if (describedById)
+        error.id = describedById;
     campo.insertAdjacentElement("afterend", error);
     return error;
 }
