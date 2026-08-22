@@ -177,6 +177,26 @@
   .servicio-card h3{ font-size: 1.15rem; margin-block: 0.5em 0.4em; }
   .servicio-card p{ color: var(--ink-soft); font-size: 0.94rem; margin: 0; }
 
+  /* ---------- Cómo trabajamos ---------- */
+  .proceso-card{
+    background: var(--paper-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 26px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .proceso-card:hover{ border-color: var(--teal); transform: translateY(-4px); }
+  .proceso-num{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--teal-dark);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .proceso-card h3{ font-size: 1.15rem; margin-block: 0.5em 0.4em; }
+  .proceso-card p{ color: var(--ink-soft); font-size: 0.94rem; margin: 0; }
+
   /* ---------- Tarjeta de proyecto (portafolio) ---------- */
   .proyecto-card{
     background: var(--paper-alt);
@@ -274,19 +294,43 @@
   }
   .precio-card .btn{ justify-content: center; }
 
-  /* ---------- Confianza ---------- */
-  .confianza-item{
+  /* ---------- Testimonios ---------- */
+  .testimonio-card{
     background: var(--paper);
-    border: 1px dashed var(--line);
+    border: 1px solid var(--line);
     border-radius: var(--radius-md);
-    padding: 26px 16px;
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition: border-color 0.2s ease, transform 0.2s ease;
   }
+  .testimonio-card:hover{ border-color: var(--teal); transform: translateY(-4px); }
+  .testimonio-card blockquote{
+    margin: 0;
+  }
+  .testimonio-card blockquote::before{
+    content: "“";
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    line-height: 0.6;
+    color: var(--teal);
+    margin-bottom: 0.6em;
+  }
+  .testimonio-card blockquote p{
+    margin: 0;
+    color: var(--ink);
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+  .testimonio-card cite{
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+  }
+  .testimonio-nombre{ font-weight: 700; color: var(--ink); font-size: 0.92rem; }
+  .testimonio-rol{ color: var(--ink-soft); font-size: 0.84rem; }
 
   /* ---------- Formulario de contacto ---------- */
   .form-contacto{
@@ -305,6 +349,7 @@
     color: var(--ink);
   }
   .form-field input,
+  .form-field select,
   .form-field textarea{
     width: 100%;
     font: inherit;
@@ -316,6 +361,7 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
   .form-field input:focus,
+  .form-field select:focus,
   .form-field textarea:focus{
     border-color: var(--teal);
     box-shadow: 0 0 0 3px rgba(31,122,108,0.15);
@@ -324,11 +370,16 @@
     resize: vertical;
     min-height: 120px;
   }
+  .form-field select:invalid{
+    color: var(--ink-soft);
+  }
   .form-field input.is-invalid,
+  .form-field select.is-invalid,
   .form-field textarea.is-invalid{
     border-color: var(--error);
   }
   .form-field input.is-invalid:focus,
+  .form-field select.is-invalid:focus,
   .form-field textarea.is-invalid:focus{
     box-shadow: 0 0 0 3px rgba(179,38,30,0.15);
   }

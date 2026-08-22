@@ -34,6 +34,9 @@
 
 <link rel="stylesheet" href="css/styles.css">
 <script src="js/theme.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/animaciones.js" defer></script>
 </head>
 <body>
 
@@ -61,11 +64,9 @@
     <nav class="main-nav" aria-label="Navegación principal">
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="index.html#servicios">Servicios</a></li>
         <li><a href="proyectos.html">Proyectos</a></li>
         <li><a href="precios.html">Precios</a></li>
         <li><a href="faq.html">Preguntas frecuentes</a></li>
-        <li><a href="index.html#nosotros">Sobre nosotros</a></li>
         <li><a href="index.html#contacto" class="nav-cta">Contáctanos</a></li>
         <li class="theme-toggle-item"><button type="button" class="theme-toggle theme-toggle--desktop" aria-pressed="false" aria-label="Activar modo oscuro"></button></li>
       </ul>
@@ -216,7 +217,13 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Vitrina. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <p>© 2026 Vitrina. Todos los derechos reservados.</p>
+        <nav aria-label="Legal">
+          <a href="privacidad.html">Privacidad</a>
+          <a href="terminos.html">Términos</a>
+        </nav>
+      </div>
       <a href="#top">Volver arriba</a>
     </div>
   </div>

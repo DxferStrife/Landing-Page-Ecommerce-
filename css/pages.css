@@ -1,3 +1,43 @@
+  /* ---------- Hero de video (portada) ---------- */
+  .hero-video{
+    position: relative;
+    min-height: calc(100dvh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--cta-surface);
+  }
+  .hero-video-bg{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-video-overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(16,22,31,0.55);
+  }
+  .hero-video-inner{
+    position: relative;
+    text-align: center;
+  }
+  .hero-video-inner h1{
+    color: var(--cta-ink);
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    margin: 0 auto;
+    max-width: 18ch;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.45);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-video-bg{ display: none; }
+    .hero-video{ background: var(--cta-surface) center/cover no-repeat; }
+  }
+
   /* ---------- Hero ---------- */
   .hero{
     min-height: 100dvh;
@@ -33,6 +73,7 @@
 
   .hero-showcase {
     margin-right: calc(-1 * var(--space-xl));
+    perspective: 2400px;
   }
 
   .hero-media {
@@ -40,6 +81,11 @@
     margin: 0;
     overflow: hidden;
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+    --brillo-x: 50%;
+    --brillo-y: 50%;
   }
 
   .hero-media img {
@@ -51,10 +97,42 @@
     object-position: left center;
   }
 
+  /* Sombra que desvanece el borde derecho recortado (solo mientras la imagen bandera al 135%, ver responsive.css) */
+  .hero-media::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 70%, var(--paper) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Resaltado especular que sigue al cursor (activado por ts/tilt-hero.ts) */
+  .hero-media::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--brillo-x) var(--brillo-y), rgba(255,255,255,0.35), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .hero-media:hover::before{
+    opacity: 1;
+  }
+
   /* ---------- Servicios ---------- */
   .servicios-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  /* ---------- Cómo trabajamos ---------- */
+  .proceso-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-xl);
   }
 
@@ -78,6 +156,16 @@
     font-size: 0.9rem;
     margin-top: 32px;
   }
+
+  /* ---------- Legal (privacidad, términos) ---------- */
+  .legal-body{
+    display: grid;
+    gap: var(--space-2xl);
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .legal-body h2{ font-size: 1.2rem; margin-bottom: 0.5em; }
+  .legal-body p{ color: var(--ink-soft); }
 
   /* ---------- FAQ ---------- */
   .faq-list{
@@ -138,7 +226,6 @@
     color: var(--ink-soft);
   }
   .caso-figure{
-    order: -1;
     margin: 0;
     background: linear-gradient(155deg, var(--teal) 0%, var(--teal-dark) 100%);
     border-radius: var(--radius-lg);
@@ -171,11 +258,11 @@
     aspect-ratio: 1;
   }
 
-  /* ---------- Confianza ---------- */
-  .confianza-list{
+  /* ---------- Testimonios ---------- */
+  .testimonios-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-xl);
   }
 
   /* ---------- Nosotros ---------- */

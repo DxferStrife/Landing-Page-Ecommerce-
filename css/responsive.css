@@ -7,8 +7,28 @@
     .contacto-form-wrap{ padding: 36px; margin-top: var(--space-3xl); }
   }
   @media (min-width: 900px){
+    .section{ padding-block: 120px; }
+
+    .servicios-grid,
+    .proceso-grid,
+    .testimonios-grid{
+      grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+      justify-content: center;
+      gap: var(--space-2xl);
+    }
+    .servicio-card,
+    .proceso-card,
+    .testimonio-card{ padding: 34px; }
+    .servicio-card h3,
+    .proceso-card h3{ font-size: 1.3rem; }
+    .servicio-card p,
+    .proceso-card p{ font-size: 1rem; }
+    .testimonio-card blockquote p{ font-size: 1.05rem; }
+
     .hero-inner{ grid-template-columns: 1fr; gap: var(--space-5xl); }
     .hero-showcase img{width: 100%;}
+    .hero-media{ border-radius: var(--radius-lg); }
+    .hero-media::after{ display: none; }
     .caso{ grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
     .caso-figure{ order: 0; }
     .caso--reverse .caso-figure{ order: -1; }

@@ -25,6 +25,11 @@ function validarTelefono(valor) {
         return "Ingresa un número de teléfono válido.";
     return null;
 }
+function validarPlan(valor) {
+    if (!valor)
+        return "Selecciona el plan que más te interesa.";
+    return null;
+}
 function validarMensaje(valor) {
     const v = valor.trim();
     if (!v)
@@ -68,13 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const nombre = form.querySelector("#nombre");
     const email = form.querySelector("#email");
     const telefono = form.querySelector("#telefono");
+    const plan = form.querySelector("#plan");
     const mensaje = form.querySelector("#mensaje");
-    if (!nombre || !email || !telefono || !mensaje)
+    if (!nombre || !email || !telefono || !plan || !mensaje)
         return;
     const campos = [
         [nombre, validarNombre],
         [email, validarEmail],
         [telefono, validarTelefono],
+        [plan, validarPlan],
         [mensaje, validarMensaje],
     ];
     campos.forEach(([campo, validar]) => {
@@ -82,6 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
             marcarError(campo, validar(campo.value));
         });
         campo.addEventListener("input", () => {
+            if (campo.classList.contains("is-invalid")) {
+                marcarError(campo, validar(campo.value));
+            }
+        });
+        campo.addEventListener("change", () => {
             if (campo.classList.contains("is-invalid")) {
                 marcarError(campo, validar(campo.value));
             }

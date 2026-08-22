@@ -35,6 +35,10 @@
 <link rel="stylesheet" href="css/styles.css">
 <script src="js/theme.js" defer></script>
 <script src="js/validacion-contacto.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/animaciones.js" defer></script>
+<script src="js/tilt-hero.js" defer></script>
 </head>
 <body>
 
@@ -61,11 +65,9 @@
 
     <nav class="main-nav" aria-label="Navegación principal">
       <ul>
-        <li><a href="#servicios">Servicios</a></li>
         <li><a href="proyectos.html">Proyectos</a></li>
         <li><a href="precios.html">Precios</a></li>
         <li><a href="faq.html">Preguntas frecuentes</a></li>
-        <li><a href="#nosotros">Sobre nosotros</a></li>
         <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
         <li class="theme-toggle-item"><button type="button" class="theme-toggle theme-toggle--desktop" aria-pressed="false" aria-label="Activar modo oscuro"></button></li>
       </ul>
@@ -75,12 +77,21 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-heading">
+  <!-- HERO VIDEO -->
+  <section class="hero-video" aria-labelledby="hero-video-heading">
+    <video class="hero-video-bg" src="video/HeroVideo.compressed.mp4" poster="img/EcommerExample.png" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="hero-video-overlay" aria-hidden="true"></div>
+    <div class="container hero-video-inner">
+      <h1 id="hero-video-heading">Que tu negocio trabaje para ti, no tú para él</h1>
+    </div>
+  </section>
+
+  <!-- PRESENTACIÓN -->
+  <section class="hero" aria-labelledby="presentacion-heading">
     <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Creación de tiendas en línea</p>
-        <h1 id="hero-heading">Convierte tu negocio en una <em>tienda</em> que vende sola</h1>
+        <h2 id="presentacion-heading">Convierte tu negocio en una <em>tienda</em> que vende sola</h2>
         <p class="hero-lead">Diseñamos, construimos y ponemos en marcha tu e-commerce: catálogo, pagos, envíos y una vitrina digital que tus clientes van a querer visitar.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contacto">Empieza tu tienda</a>
@@ -95,7 +106,7 @@
           alt="Vista previa de la tienda Casa Verde"
           width="1400"
           height="1050"
-          loading="eager"
+          loading="lazy"
           decoding="async"
           >
         </figure>
@@ -145,8 +156,56 @@
     </div>
   </section>
 
+  <!-- CÓMO TRABAJAMOS -->
+  <section id="como-trabajamos" class="section" aria-labelledby="como-trabajamos-heading">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2 id="como-trabajamos-heading">De la idea a tu tienda en marcha</h2>
+        <p>Un proceso claro de principio a fin, con entregas en semanas, no en meses.</p>
+      </div>
+      <ol class="proceso-grid">
+        <li class="proceso-card">
+          <article>
+            <span class="proceso-num" aria-hidden="true">01</span>
+            <h3>Descubrimiento</h3>
+            <p>Entendemos tu negocio, tu catálogo actual y cómo compran tus clientes hoy.</p>
+          </article>
+        </li>
+        <li class="proceso-card">
+          <article>
+            <span class="proceso-num" aria-hidden="true">02</span>
+            <h3>Diseño</h3>
+            <p>Diseñamos la identidad y navegación de tu tienda a medida, no sobre una plantilla.</p>
+          </article>
+        </li>
+        <li class="proceso-card">
+          <article>
+            <span class="proceso-num" aria-hidden="true">03</span>
+            <h3>Construcción</h3>
+            <p>Construimos catálogo, pagos, envíos e integraciones, y probamos cada flujo de compra.</p>
+          </article>
+        </li>
+        <li class="proceso-card">
+          <article>
+            <span class="proceso-num" aria-hidden="true">04</span>
+            <h3>Lanzamiento</h3>
+            <p>Publicamos tu tienda y la dejamos lista para recibir tus primeros pedidos reales.</p>
+          </article>
+        </li>
+        <li class="proceso-card">
+          <article>
+            <span class="proceso-num" aria-hidden="true">05</span>
+            <h3>Acompañamiento</h3>
+            <p>Seguimos disponibles después del lanzamiento para ajustar lo que tu tienda necesite.</p>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- CASO DE ÉXITO -->
-  <section id="proyectos" class="section" aria-labelledby="proyectos-heading">
+  <section id="proyectos" class="section section-alt" aria-labelledby="proyectos-heading">
     <div class="container">
       <article class="caso">
         <div class="caso-copy">
@@ -183,25 +242,76 @@
     </div>
   </section>
 
-  <!-- CONFIANZA -->
-  <section class="section section-alt" aria-labelledby="confianza-heading">
+  <!-- TESTIMONIOS -->
+  <section id="testimonios" class="section" aria-labelledby="testimonios-heading">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Confianza</p>
-        <h2 id="confianza-heading">Empresas que confían en nosotros</h2>
+        <p class="eyebrow">Testimonios</p>
+        <h2 id="testimonios-heading">Negocios que ya venden solos con su tienda</h2>
+        <p>Esto es lo que nos cuentan los dueños de los negocios con los que trabajamos.</p>
       </div>
-      <ul class="confianza-list">
-        <li class="confianza-item">Casa Verde</li>
-        <li class="confianza-item">Nómade</li>
-        <li class="confianza-item">Panadería Sol</li>
-        <li class="confianza-item">Estudio Lima</li>
-        <li class="confianza-item">Rueda Bikes</li>
+      <ul class="testimonios-grid">
+        <li class="testimonio-card">
+          <article>
+            <blockquote>
+              <p>Pasamos de tomar pedidos por WhatsApp a tener un catálogo de más de 300 productos organizado por ambiente. Los pedidos por semana se triplicaron y el carrito abandonado bajó casi a la mitad.</p>
+            </blockquote>
+            <cite>
+              <span class="testimonio-nombre">María Fernanda Ochoa</span>
+              <span class="testimonio-rol">Fundadora, Casa Verde</span>
+            </cite>
+          </article>
+        </li>
+        <li class="testimonio-card">
+          <article>
+            <blockquote>
+              <p>Lo que más nos sorprendió fue el checkout: nuestros clientes compran en menos de 30 segundos. El envío se calcula solo por ciudad, así que dejamos de responder esa pregunta uno por uno.</p>
+            </blockquote>
+            <cite>
+              <span class="testimonio-nombre">Diego Salinas</span>
+              <span class="testimonio-rol">Dueño, Nómade</span>
+            </cite>
+          </article>
+        </li>
+        <li class="testimonio-card">
+          <article>
+            <blockquote>
+              <p>El inventario se sincroniza en tiempo real con el local físico, así que nunca más vendimos algo que ya no teníamos. Para una panadería con pedidos de última hora, eso lo cambió todo.</p>
+            </blockquote>
+            <cite>
+              <span class="testimonio-nombre">Lucía Andrade</span>
+              <span class="testimonio-rol">Encargada de ventas, Panadería Sol</span>
+            </cite>
+          </article>
+        </li>
+        <li class="testimonio-card">
+          <article>
+            <blockquote>
+              <p>Nuestra vitrina por colección con variantes de material quedó tal cual la imaginamos. El ticket promedio subió más de 40% desde que abrimos la tienda en línea.</p>
+            </blockquote>
+            <cite>
+              <span class="testimonio-nombre">Carlos Beltrán</span>
+              <span class="testimonio-rol">Director creativo, Estudio Lima</span>
+            </cite>
+          </article>
+        </li>
+        <li class="testimonio-card">
+          <article>
+            <blockquote>
+              <p>Ahora nuestros clientes reservan el mantenimiento de su bicicleta en línea y solo pasan a retirarla. El equipo dejó de perder tiempo coordinando citas por teléfono.</p>
+            </blockquote>
+            <cite>
+              <span class="testimonio-nombre">Sofía Vintimilla</span>
+              <span class="testimonio-rol">Gerente general, Rueda Bikes</span>
+            </cite>
+          </article>
+        </li>
       </ul>
     </div>
   </section>
 
   <!-- SOBRE NOSOTROS -->
-  <section id="nosotros" class="section" aria-labelledby="nosotros-heading">
+  <section id="nosotros" class="section section-alt" aria-labelledby="nosotros-heading">
     <div class="container nosotros">
       <div>
         <p class="eyebrow">Sobre nosotros</p>
@@ -241,8 +351,19 @@
             </div>
             <div class="form-field">
               <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required aria-describedby="telefono-error" placeholder="0999999999">
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required pattern="[0-9+\s-]{7,15}" title="Ingresa entre 7 y 15 dígitos, puede incluir + y espacios" aria-describedby="telefono-error" placeholder="0999999999">
               <span class="form-error" id="telefono-error" role="alert"></span>
+            </div>
+            <div class="form-field">
+              <label for="plan">¿Qué plan te interesa?</label>
+              <select id="plan" name="plan" required aria-describedby="plan-error">
+                <option value="" selected disabled>Selecciona un plan</option>
+                <option value="escaparate">Escaparate — Tu primera tienda</option>
+                <option value="vitrina">Vitrina — Para crecer en serio</option>
+                <option value="boutique">Boutique a medida — Catálogos grandes</option>
+                <option value="no-se">Aún no lo sé</option>
+              </select>
+              <span class="form-error" id="plan-error" role="alert"></span>
             </div>
             <div class="form-field">
               <label for="mensaje">Cuéntanos sobre tu negocio</label>
@@ -284,7 +405,13 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Vitrina. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <p>© 2026 Vitrina. Todos los derechos reservados.</p>
+        <nav aria-label="Legal">
+          <a href="privacidad.html">Privacidad</a>
+          <a href="terminos.html">Términos</a>
+        </nav>
+      </div>
       <a href="#top">Volver arriba</a>
     </div>
   </div>

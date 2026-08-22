@@ -17,7 +17,7 @@
 
   img, svg{ max-width: 100%; display: block; }
   a{ color: inherit; }
-  ul{ list-style: none; margin: 0; padding: 0; }
+  ul, ol{ list-style: none; margin: 0; padding: 0; }
 
   h1,h2,h3{
     font-family: var(--font-display);
@@ -38,6 +38,7 @@
   button:focus-visible,
   label:focus-visible,
   input:focus-visible,
+  select:focus-visible,
   textarea:focus-visible,
   summary:focus-visible,
   [tabindex]:focus-visible{
@@ -312,3 +313,10 @@
     color: var(--ink-soft);
   }
   .footer-bottom a{ text-decoration: underline; }
+  .footer-legal{
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+  .footer-legal nav{ display: flex; gap: var(--space-md); }

@@ -1,4 +1,4 @@
-type CampoFormulario = HTMLInputElement | HTMLTextAreaElement;
+type CampoFormulario = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 type Validador = (valor: string) => string | null;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -22,6 +22,11 @@ function validarTelefono(valor: string): string | null {
   const v = valor.trim();
   if (!v) return "Ingresa tu número de teléfono.";
   if (!TELEFONO_REGEX.test(v)) return "Ingresa un número de teléfono válido.";
+  return null;
+}
+
+function validarPlan(valor: string): string | null {
+  if (!valor) return "Selecciona el plan que más te interesa.";
   return null;
 }
 
@@ -67,14 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const nombre = form.querySelector<HTMLInputElement>("#nombre");
   const email = form.querySelector<HTMLInputElement>("#email");
   const telefono = form.querySelector<HTMLInputElement>("#telefono");
+  const plan = form.querySelector<HTMLSelectElement>("#plan");
   const mensaje = form.querySelector<HTMLTextAreaElement>("#mensaje");
 
-  if (!nombre || !email || !telefono || !mensaje) return;
+  if (!nombre || !email || !telefono || !plan || !mensaje) return;
 
   const campos: [CampoFormulario, Validador][] = [
     [nombre, validarNombre],
     [email, validarEmail],
     [telefono, validarTelefono],
+    [plan, validarPlan],
     [mensaje, validarMensaje],
   ];
 
@@ -83,6 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
       marcarError(campo, validar(campo.value));
     });
     campo.addEventListener("input", () => {
+      if (campo.classList.contains("is-invalid")) {
+        marcarError(campo, validar(campo.value));
+      }
+    });
+    campo.addEventListener("change", () => {
       if (campo.classList.contains("is-invalid")) {
         marcarError(campo, validar(campo.value));
       }
