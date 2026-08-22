@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Tarjetas: entran en secuencia desde abajo, en cualquier tamaño de pantalla.
     document
-        .querySelectorAll(".servicios-grid, .proceso-grid, .testimonios-grid, .proyectos-grid, .precios-grid, .faq-list")
+        .querySelectorAll(".servicios-grid, .proceso-grid, .testimonios-grid, .precios-grid, .faq-list")
         .forEach((grupo) => {
         const tarjetas = Array.from(grupo.children);
         if (!tarjetas.length)

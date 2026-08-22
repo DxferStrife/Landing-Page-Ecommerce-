@@ -136,13 +136,6 @@
     gap: var(--space-xl);
   }
 
-  /* ---------- Portafolio de proyectos ---------- */
-  .proyectos-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 26px;
-  }
-
   /* ---------- Precios ---------- */
   .precios-grid{
     display: grid;
@@ -256,6 +249,33 @@
     background: rgba(255,255,255,0.16);
     border-radius: 8px;
     aspect-ratio: 1;
+  }
+
+  /* ---------- Historias de proyectos (acordeón en móvil, abierto fijo en escritorio) ---------- */
+  .proyecto-historia .caso-copy details{
+    margin-top: var(--space-md);
+  }
+  .proyecto-historia .caso-copy summary{
+    cursor: pointer;
+    list-style: none;
+  }
+  .proyecto-historia .caso-copy summary::-webkit-details-marker{ display: none; }
+  .proyecto-historia .caso-copy summary h2{
+    display: inline;
+    margin: 0;
+  }
+  .proyecto-historia .caso-copy summary::after{
+    content: "+";
+    display: inline-block;
+    margin-left: 10px;
+    color: var(--teal);
+    font-size: 1.3rem;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .proyecto-historia .caso-copy details[open] summary::after{ content: "–"; }
+  .proyecto-historia .caso-copy details p{
+    margin-top: var(--space-md);
   }
 
   /* ---------- Testimonios ---------- */

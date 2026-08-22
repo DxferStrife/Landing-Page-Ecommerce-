@@ -197,35 +197,6 @@
   .proceso-card h3{ font-size: 1.15rem; margin-block: 0.5em 0.4em; }
   .proceso-card p{ color: var(--ink-soft); font-size: 0.94rem; margin: 0; }
 
-  /* ---------- Tarjeta de proyecto (portafolio) ---------- */
-  .proyecto-card{
-    background: var(--paper-alt);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .proyecto-card:hover{
-    border-color: var(--teal);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -28px rgba(16,22,31,0.35);
-  }
-  .proyecto-media{
-    margin: 0;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    aspect-ratio: 400 / 260;
-  }
-  .proyecto-media img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.35s ease;
-  }
-  .proyecto-card:hover .proyecto-media img{
-    transform: scale(1.06);
-  }
-
   /* ---------- Tarjeta de precio ---------- */
   .precio-card{
     position: relative;

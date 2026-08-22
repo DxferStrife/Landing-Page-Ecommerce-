@@ -37,6 +37,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/animaciones.js" defer></script>
+<script src="js/acordeon-historias.js" defer></script>
 </head>
 <body>
 
@@ -76,7 +77,7 @@
 
 <main id="main">
 
-  <!-- INTRO + GRID DE PROYECTOS -->
+  <!-- INTRO -->
   <section class="section" aria-labelledby="proyectos-heading">
     <div class="container">
       <div class="section-head">
@@ -84,98 +85,131 @@
         <h1 id="proyectos-heading">Tiendas que hemos construido</h1>
         <p>Cada proyecto arranca distinto: un mostrador físico, un catálogo en redes sociales, pedidos por WhatsApp. Esto es lo que construimos cuando el negocio da el salto a vender por su cuenta.</p>
       </div>
+    </div>
+  </section>
 
-      <ul class="proyectos-grid">
-        <li class="proyecto-card">
-          <article>
-            <div class="browser-chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-              <span class="url-bar">casaverde.com</span>
-            </div>
-            <figure class="proyecto-media">
-              <img src="img/proyecto-casaverde.svg" alt="Vista previa de la tienda en línea de Casa Verde, decoración de interiores" loading="lazy" width="400" height="260">
-            </figure>
-            <span class="store-tag">3.2× más pedidos</span>
-            <div class="slide-caption">
-              <h2>Casa Verde</h2>
-              <p>Decoración de interiores. Catálogo de más de 300 productos organizado por ambiente, con pago por tarjeta y transferencia.</p>
-            </div>
-          </article>
-        </li>
+  <!-- CASA VERDE -->
+  <section class="section section-alt" aria-labelledby="proyecto-casaverde-heading">
+    <div class="container">
+      <article class="caso proyecto-historia">
+        <div class="caso-copy">
+          <p class="eyebrow">Casa Verde · Decoración de interiores</p>
+          <span class="store-tag">3.2× más pedidos</span>
+          <details>
+            <summary><h2 id="proyecto-casaverde-heading">Cómo Casa Verde triplicó sus pedidos con su propia tienda</h2></summary>
+            <p>Antes, cada pedido llegaba por WhatsApp y alguien del equipo tenía que revisar catálogo, confirmar stock y coordinar el pago a mano. Migramos su catálogo de más de 300 productos a una tienda organizada por ambiente, con pago por tarjeta y transferencia integrados. En ocho semanas, Casa Verde pasó de tomar pedidos uno por uno a recibirlos solos: los pedidos por semana se triplicaron y el abandono de carrito bajó casi a la mitad.</p>
+          </details>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">casaverde.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/proyecto-casaverde.svg" alt="Vista previa de la tienda en línea de Casa Verde, decoración de interiores" loading="lazy" width="400" height="260">
+          <figcaption>Vista previa · casaverde.com</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
 
-        <li class="proyecto-card">
-          <article>
-            <div class="browser-chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-              <span class="url-bar">nomade.com</span>
-            </div>
-            <figure class="proyecto-media">
-              <img src="img/proyecto-nomade.svg" alt="Vista previa de la tienda en línea de Nómade, mochilas de viaje" loading="lazy" width="400" height="260">
-            </figure>
-            <span class="store-tag">Checkout en 30s</span>
-            <div class="slide-caption">
-              <h2>Nómade</h2>
-              <p>Mochilas de viaje. Checkout simplificado y envíos calculados automáticamente a todo el país.</p>
-            </div>
-          </article>
-        </li>
+  <!-- NÓMADE -->
+  <section class="section" aria-labelledby="proyecto-nomade-heading">
+    <div class="container">
+      <article class="caso caso--reverse proyecto-historia">
+        <div class="caso-copy">
+          <p class="eyebrow">Nómade · Mochilas de viaje</p>
+          <span class="store-tag">Checkout en 30s</span>
+          <details>
+            <summary><h2 id="proyecto-nomade-heading">Nómade simplificó su checkout hasta hacerlo casi invisible</h2></summary>
+            <p>Nómade vende mochilas de viaje a un público que compra desde el celular, muchas veces apurado antes de un vuelo. Diseñamos un checkout de una sola pantalla y conectamos el cálculo de envío automático por ciudad, para que nadie tenga que escribir preguntando cuánto cuesta el envío. Hoy sus clientes completan una compra en menos de 30 segundos.</p>
+          </details>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">nomade.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/proyecto-nomade.svg" alt="Vista previa de la tienda en línea de Nómade, mochilas de viaje" loading="lazy" width="400" height="260">
+          <figcaption>Vista previa · nomade.com</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
 
-        <li class="proyecto-card">
-          <article>
-            <div class="browser-chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-              <span class="url-bar">panaderiasol.com</span>
-            </div>
-            <figure class="proyecto-media">
-              <img src="img/proyecto-panaderiasol.svg" alt="Vista previa de la tienda en línea de Panadería Sol, delivery de panadería" loading="lazy" width="400" height="260">
-            </figure>
-            <span class="store-tag">Stock en vivo</span>
-            <div class="slide-caption">
-              <h2>Panadería Sol</h2>
-              <p>Delivery de panadería. Inventario sincronizado en tiempo real con el local físico.</p>
-            </div>
-          </article>
-        </li>
+  <!-- PANADERÍA SOL -->
+  <section class="section section-alt" aria-labelledby="proyecto-panaderiasol-heading">
+    <div class="container">
+      <article class="caso proyecto-historia">
+        <div class="caso-copy">
+          <p class="eyebrow">Panadería Sol · Delivery de panadería</p>
+          <span class="store-tag">Stock en vivo</span>
+          <details>
+            <summary><h2 id="proyecto-panaderiasol-heading">El inventario de Panadería Sol ahora se actualiza solo</h2></summary>
+            <p>Una panadería vende productos que se agotan en horas, no en semanas. El reto era evitar que alguien comprara en línea algo que ya no había en el local. Conectamos el inventario de la tienda con el sistema del punto de venta físico, así el stock se sincroniza en tiempo real y nunca más se vendió algo que ya no estaba disponible.</p>
+          </details>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">panaderiasol.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/proyecto-panaderiasol.svg" alt="Vista previa de la tienda en línea de Panadería Sol, delivery de panadería" loading="lazy" width="400" height="260">
+          <figcaption>Vista previa · panaderiasol.com</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
 
-        <li class="proyecto-card">
-          <article>
-            <div class="browser-chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-              <span class="url-bar">estudiolima.com</span>
-            </div>
-            <figure class="proyecto-media">
-              <img src="img/proyecto-estudiolima.svg" alt="Vista previa de la tienda en línea de Estudio Lima, mobiliario y diseño" loading="lazy" width="400" height="260">
-            </figure>
-            <span class="store-tag">+40% ticket promedio</span>
-            <div class="slide-caption">
-              <h2>Estudio Lima</h2>
-              <p>Mobiliario y diseño. Vitrina por colección con variantes de material y acabado, y cotización directa por WhatsApp.</p>
-            </div>
-          </article>
-        </li>
+  <!-- ESTUDIO LIMA -->
+  <section class="section" aria-labelledby="proyecto-estudiolima-heading">
+    <div class="container">
+      <article class="caso caso--reverse proyecto-historia">
+        <div class="caso-copy">
+          <p class="eyebrow">Estudio Lima · Mobiliario y diseño</p>
+          <span class="store-tag">+40% ticket promedio</span>
+          <details>
+            <summary><h2 id="proyecto-estudiolima-heading">Estudio Lima convirtió su catálogo en una vitrina por colección</h2></summary>
+            <p>Estudio Lima diseña mobiliario a medida, con distintos materiales y acabados por pieza. En vez de un catálogo plano, construimos una vitrina organizada por colección, con variantes claras de material y acabado, y un botón de cotización directa por WhatsApp para los proyectos más grandes. El ticket promedio subió más de 40% desde el lanzamiento.</p>
+          </details>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">estudiolima.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/proyecto-estudiolima.svg" alt="Vista previa de la tienda en línea de Estudio Lima, mobiliario y diseño" loading="lazy" width="400" height="260">
+          <figcaption>Vista previa · estudiolima.com</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
 
-        <li class="proyecto-card">
-          <article>
-            <div class="browser-chrome" aria-hidden="true">
-              <span></span><span></span><span></span>
-              <span class="url-bar">ruedabikes.com</span>
-            </div>
-            <figure class="proyecto-media">
-              <img src="img/proyecto-ruedabikes.svg" alt="Vista previa de la tienda en línea de Rueda Bikes, bicicletas y accesorios" loading="lazy" width="400" height="260">
-            </figure>
-            <span class="store-tag">Reservas en línea</span>
-            <div class="slide-caption">
-              <h2>Rueda Bikes</h2>
-              <p>Bicicletas y accesorios. Catálogo por tipo de bicicleta y reserva de mantenimiento en línea con retiro en tienda.</p>
-            </div>
-          </article>
-        </li>
-      </ul>
+  <!-- RUEDA BIKES -->
+  <section class="section section-alt" aria-labelledby="proyecto-ruedabikes-heading">
+    <div class="container">
+      <article class="caso proyecto-historia">
+        <div class="caso-copy">
+          <p class="eyebrow">Rueda Bikes · Bicicletas y accesorios</p>
+          <span class="store-tag">Reservas en línea</span>
+          <details>
+            <summary><h2 id="proyecto-ruedabikes-heading">Rueda Bikes dejó de coordinar citas de mantenimiento por teléfono</h2></summary>
+            <p>Además de vender bicicletas y accesorios, Rueda Bikes ofrece mantenimiento en su taller físico. Sumamos un catálogo organizado por tipo de bicicleta y un sistema de reserva de mantenimiento en línea, con retiro programado en tienda. El equipo ya no pasa el día coordinando horarios por teléfono.</p>
+          </details>
+        </div>
+        <figure class="caso-figure">
+          <div class="browser-chrome" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span class="url-bar">ruedabikes.com</span>
+          </div>
+          <img class="caso-figure-img" src="img/proyecto-ruedabikes.svg" alt="Vista previa de la tienda en línea de Rueda Bikes, bicicletas y accesorios" loading="lazy" width="400" height="260">
+          <figcaption>Vista previa · ruedabikes.com</figcaption>
+        </figure>
+      </article>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section section-alt" aria-labelledby="proyectos-cta-heading">
+  <section class="section" aria-labelledby="proyectos-cta-heading">
     <div class="container">
       <div class="contacto">
         <div class="contacto-copy">

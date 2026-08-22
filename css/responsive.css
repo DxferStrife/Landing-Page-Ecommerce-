@@ -32,6 +32,12 @@
     .caso{ grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
     .caso-figure{ order: 0; }
     .caso--reverse .caso-figure{ order: -1; }
+
+    .proyecto-historia .caso-copy summary{
+      cursor: default;
+      pointer-events: none;
+    }
+    .proyecto-historia .caso-copy summary::after{ display: none; }
     .nosotros{ grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
     .footer-grid{ grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-2xl); }
 
