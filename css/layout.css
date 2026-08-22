@@ -1,0 +1,314 @@
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  img, svg{ max-width: 100%; display: block; }
+  a{ color: inherit; }
+  ul{ list-style: none; margin: 0; padding: 0; }
+
+  h1,h2,h3{
+    font-family: var(--font-display);
+    line-height: 1.1;
+    margin: 0 0 0.5em;
+    font-weight: 700;
+  }
+
+  .container{
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: var(--space-xl);
+  }
+
+  /* ---------- Focus & skip link ---------- */
+  :focus{ outline: none; }
+  a:focus-visible,
+  button:focus-visible,
+  label:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible{
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .skip-link{
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--cta-surface);
+    color: var(--cta-ink);
+    padding: 12px 20px;
+    z-index: 200;
+    border-radius: 0 0 8px 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+  }
+  .skip-link:focus{
+    left: 0;
+  }
+
+  .sr-only{
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---------- Header ----------
+     El desenfoque vive en un div hermano (.site-header-bg), no en .site-header directamente:
+     backdrop-filter en un ancestro convierte a sus descendientes position:fixed (el drawer del
+     nav) en relativos a ese ancestro en vez del viewport, cortando el drawer al hacer scroll. */
+  .site-header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header-bg{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--header-bg);
+    backdrop-filter: blur(8px);
+  }
+  .header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-md);
+    gap: var(--space-md);
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+  .logo-mark{
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--gold);
+    display: grid;
+    place-items: center;
+    color: var(--gold-ink);
+    font-weight: 700;
+    transform: rotate(-6deg);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+  }
+  .header-actions{
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  /* Bloquea el scroll de la página mientras el drawer está abierto; el scroll pasa a ocurrir
+     dentro del propio drawer (.main-nav ya tiene overflow-y: auto). */
+  html:has(.nav-toggle-input:checked){
+    overflow: hidden;
+  }
+
+  /* ---------- Nav toggle (hamburger) ---------- */
+  .nav-toggle{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--paper-alt);
+    cursor: pointer;
+    z-index: 160;
+  }
+  .nav-toggle-input{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  .nav-toggle-bar{
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--ink);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .header-inner:has(.nav-toggle-input:checked) .nav-toggle-bar--top{
+    transform: translateY(7px) rotate(45deg);
+  }
+  .header-inner:has(.nav-toggle-input:checked) .nav-toggle-bar--mid{
+    opacity: 0;
+  }
+  .header-inner:has(.nav-toggle-input:checked) .nav-toggle-bar--bottom{
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-backdrop{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(16,22,31,0.45);
+    z-index: 140;
+    cursor: default;
+  }
+  .header-inner:has(.nav-toggle-input:checked) .nav-backdrop{
+    display: block;
+  }
+
+  /* ---------- Nav (drawer en móvil/tablet, barra inline en escritorio) ---------- */
+  .main-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 150;
+    width: min(300px, 80vw);
+    height: 100vh;
+    height: 100dvh;
+    background: var(--paper-alt);
+    border-left: 1px solid var(--line);
+    box-shadow: -12px 0 32px -16px rgba(16,22,31,0.35);
+    padding: var(--space-7xl) 28px 28px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .header-inner:has(.nav-toggle-input:checked) .main-nav{
+    transform: translateX(0);
+  }
+  .main-nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+  .main-nav a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.98rem;
+    padding: 6px 2px;
+    position: relative;
+  }
+  .main-nav a:not(.nav-cta)::after{
+    content: "";
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: -2px;
+    height: 2px;
+    background: var(--teal);
+    transition: right 0.2s ease;
+  }
+  .main-nav a:not(.nav-cta):hover::after,
+  .main-nav a:not(.nav-cta):focus-visible::after{
+    right: 0;
+  }
+  .nav-cta{
+    background: var(--cta-surface);
+    color: var(--cta-ink);
+    padding: 0.55em 1.1em;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .nav-cta:hover{ background: var(--teal-dark); }
+
+  /* ---------- Selector de modo claro/oscuro ---------- */
+  .theme-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--paper-alt);
+    color: var(--ink);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .theme-toggle:hover{ border-color: var(--teal); }
+  .theme-toggle::before{
+    content: "🌙";
+  }
+  :root[data-theme="dark"] .theme-toggle::before{
+    content: "☀️";
+  }
+  /* Móvil/tablet: junto al botón de hamburguesa */
+  .theme-toggle--mobile{ display: flex; }
+  /* Escritorio: como último elemento del nav, dentro de .main-nav ul */
+  .theme-toggle-item{ display: none; }
+
+  /* ---------- Section shell ---------- */
+  .section{ padding-block: 52px; }
+  .section-alt{ background: var(--paper-alt); }
+  .section-head{
+    max-width: 640px;
+    margin-bottom: 44px;
+  }
+  .section-head h1,
+  .section-head h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p{ color: var(--ink-soft); }
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    border-top: 1px solid var(--line);
+    padding-block: var(--space-4xl) 28px;
+  }
+  .footer-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  .footer-grid h3{
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 0.9em;
+  }
+  .footer-desc p{ color: var(--ink-soft); max-width: 36ch; font-size: 0.94rem; }
+  .footer-grid ul li{ margin-bottom: 0.6em; }
+  .footer-grid a{ text-decoration: none; font-size: 0.94rem; }
+  .footer-grid a:hover{ color: var(--teal-dark); }
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .footer-bottom a{ text-decoration: underline; }

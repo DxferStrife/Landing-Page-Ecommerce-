@@ -1,5 +1,6 @@
 "use strict";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TELEFONO_REGEX = /^[0-9+\s-]{7,15}$/;
 function validarNombre(valor) {
     const v = valor.trim();
     if (!v)
@@ -14,6 +15,14 @@ function validarEmail(valor) {
         return "Ingresa tu correo electrónico.";
     if (!EMAIL_REGEX.test(v))
         return "Ingresa un correo electrónico válido.";
+    return null;
+}
+function validarTelefono(valor) {
+    const v = valor.trim();
+    if (!v)
+        return "Ingresa tu número de teléfono.";
+    if (!TELEFONO_REGEX.test(v))
+        return "Ingresa un número de teléfono válido.";
     return null;
 }
 function validarMensaje(valor) {
@@ -58,12 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const feedback = document.querySelector(".form-feedback");
     const nombre = form.querySelector("#nombre");
     const email = form.querySelector("#email");
+    const telefono = form.querySelector("#telefono");
     const mensaje = form.querySelector("#mensaje");
-    if (!nombre || !email || !mensaje)
+    if (!nombre || !email || !telefono || !mensaje)
         return;
     const campos = [
         [nombre, validarNombre],
         [email, validarEmail],
+        [telefono, validarTelefono],
         [mensaje, validarMensaje],
     ];
     campos.forEach(([campo, validar]) => {

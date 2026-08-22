@@ -1,0 +1,41 @@
+  /* ---------- Responsive (mobile-first: estilos base = móvil, se amplían desde acá) ---------- */
+  @media (min-width: 640px){
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .hero{ padding-block: 192px 88px; }
+    .section{ padding-block: var(--space-6xl); }
+    .contacto{ padding: var(--space-5xl) var(--space-3xl); }
+    .contacto-form-wrap{ padding: 36px; margin-top: var(--space-3xl); }
+  }
+  @media (min-width: 900px){
+    .hero-inner{ grid-template-columns: 1fr; gap: var(--space-5xl); }
+    .hero-showcase img{width: 100%;}
+    .caso{ grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
+    .caso-figure{ order: 0; }
+    .caso--reverse .caso-figure{ order: -1; }
+    .nosotros{ grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
+    .footer-grid{ grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-2xl); }
+
+    .nav-toggle{ display: none; }
+    .nav-backdrop{ display: none !important; }
+    .main-nav{
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      overflow: visible;
+      transform: none;
+    }
+    .main-nav ul{
+      flex-direction: row;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .theme-toggle--mobile{ display: none; }
+    .theme-toggle-item{ display: flex; }
+
+    html:has(.nav-toggle-input:checked){ overflow: visible; }
+  }

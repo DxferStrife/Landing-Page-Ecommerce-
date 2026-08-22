@@ -2,6 +2,7 @@ type CampoFormulario = HTMLInputElement | HTMLTextAreaElement;
 type Validador = (valor: string) => string | null;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TELEFONO_REGEX = /^[0-9+\s-]{7,15}$/;
 
 function validarNombre(valor: string): string | null {
   const v = valor.trim();
@@ -14,6 +15,13 @@ function validarEmail(valor: string): string | null {
   const v = valor.trim();
   if (!v) return "Ingresa tu correo electrónico.";
   if (!EMAIL_REGEX.test(v)) return "Ingresa un correo electrónico válido.";
+  return null;
+}
+
+function validarTelefono(valor: string): string | null {
+  const v = valor.trim();
+  if (!v) return "Ingresa tu número de teléfono.";
+  if (!TELEFONO_REGEX.test(v)) return "Ingresa un número de teléfono válido.";
   return null;
 }
 
@@ -58,13 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedback = document.querySelector<HTMLElement>(".form-feedback");
   const nombre = form.querySelector<HTMLInputElement>("#nombre");
   const email = form.querySelector<HTMLInputElement>("#email");
+  const telefono = form.querySelector<HTMLInputElement>("#telefono");
   const mensaje = form.querySelector<HTMLTextAreaElement>("#mensaje");
 
-  if (!nombre || !email || !mensaje) return;
+  if (!nombre || !email || !telefono || !mensaje) return;
 
   const campos: [CampoFormulario, Validador][] = [
     [nombre, validarNombre],
     [email, validarEmail],
+    [telefono, validarTelefono],
     [mensaje, validarMensaje],
   ];
 

@@ -1,0 +1,214 @@
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height: 100dvh;
+    padding-block: 150px 80px;
+  }
+
+  .hero-inner{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+  .hero-copy h1{
+    font-size: clamp(3.2rem, 4vw, 4.8rem);
+    color: var(--ink);
+  }
+  .hero-copy h1 em{
+    font-style: normal;
+    background: linear-gradient(180deg, transparent 60%, var(--gold) 60%);
+    padding-inline: 2px;
+  }
+  .hero-lead{
+    font-size: clamp(1rem, 1vw, 1.3rem);
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 1.8em;
+  }
+  .hero-actions{
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .hero-showcase {
+    margin-right: calc(-1 * var(--space-xl));
+  }
+
+  .hero-media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  }
+
+  .hero-media img {
+    display: block;
+    width: 135%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  /* ---------- Servicios ---------- */
+  .servicios-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  /* ---------- Portafolio de proyectos ---------- */
+  .proyectos-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+  }
+
+  /* ---------- Precios ---------- */
+  .precios-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-xl);
+    align-items: stretch;
+  }
+  .precios-nota{
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin-top: 32px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    display: grid;
+    gap: var(--space-md);
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .faq-item details{
+    background: var(--paper-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+  }
+  .faq-item summary{
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ink);
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker{ display: none; }
+  .faq-item summary::after{
+    content: "+";
+    float: right;
+    color: var(--teal);
+    font-size: 1.2rem;
+  }
+  .faq-item details[open] summary::after{ content: "–"; }
+  .faq-item details p{
+    margin-top: var(--space-md);
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Caso de éxito (article) ---------- */
+  .caso{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+  .caso-copy .eyebrow{ margin-bottom: 0.6em; }
+  .caso-copy h2{ font-size: clamp(1.5rem, 3vw, 2rem); }
+  .caso-copy p{ color: var(--ink-soft); }
+  .caso-stats{
+    display: flex;
+    gap: 28px;
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
+  }
+  .caso-stats div strong{
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+  }
+  .caso-stats div span{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .caso-figure{
+    order: -1;
+    margin: 0;
+    background: linear-gradient(155deg, var(--teal) 0%, var(--teal-dark) 100%);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    color: #EAF3F1;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .caso-figure .browser-chrome{ border-bottom-color: rgba(255,255,255,0.25); }
+  .caso-figure .browser-chrome span{ background: rgba(255,255,255,0.35); }
+  .caso-figure-img{ flex: 1; width: 100%; object-fit: contain; }
+  .caso-figure .browser-chrome .url-bar{ background: rgba(255,255,255,0.12); color: #EAF3F1; border-color: rgba(255,255,255,0.25); }
+  .caso-figure figcaption{
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    opacity: 0.85;
+  }
+  .mock-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    flex: 1;
+    align-content: center;
+  }
+  .mock-grid span{
+    background: rgba(255,255,255,0.16);
+    border-radius: 8px;
+    aspect-ratio: 1;
+  }
+
+  /* ---------- Confianza ---------- */
+  .confianza-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+  }
+
+  /* ---------- Nosotros ---------- */
+  .nosotros{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+  .nosotros p{ color: var(--ink-soft); }
+
+  /* ---------- Contacto ---------- */
+  .contacto{
+    background: var(--cta-surface);
+    color: var(--cta-ink);
+    border-radius: var(--radius-lg);
+    padding: 40px 22px;
+    text-align: center;
+  }
+  .contacto h2{ color: var(--cta-ink); }
+  .contacto p{ color: #C7CDD8; max-width: 52ch; margin: 0 auto 1.6em; }
+  .contacto .btn-primary{ background: var(--gold); color: var(--gold-ink); }
+  .contacto .btn-primary:hover{ background: #ffbf5c; }
+  .contacto .btn-ghost{ border-color: var(--cta-ink); color: var(--cta-ink); }
+  .contacto .btn-ghost:hover{ background: var(--cta-ink); color: var(--cta-surface); }
+  .contacto-actions{ display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+
+  .contacto-form-wrap{
+    background: var(--paper-alt);
+    color: var(--ink);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin: 32px auto 0;
+    max-width: 560px;
+    text-align: left;
+  }
