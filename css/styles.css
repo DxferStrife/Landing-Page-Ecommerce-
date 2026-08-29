@@ -3,3 +3,11 @@
 @import "components.css";
 @import "pages.css";
 @import "responsive.css";
+
+/* Playground de componentes de interacción (backoffice) */
+@import "alerts.css";
+@import "botones.css";
+@import "checkboxes-radios.css";
+@import "dialogs.css";
+@import "menus.css";
+@import "toasts.css";

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playground de componentes — Backoffice Vitrina</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/playground.js" defer></script>
+<style>
+  body {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  .playground-aside {
+    position: sticky;
+    top: 0;
+    flex: 0 0 240px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 24px 16px;
+    border-right: 1px solid #ddd;
+  }
+
+  .playground-aside nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .playground-main {
+    flex: 1 1 auto;
+    padding: 24px 32px 96px;
+    min-width: 0;
+  }
+
+  .playground-section {
+    padding-block: 48px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .playground-section:first-of-type {
+    padding-top: 0;
+  }
+
+  .playground-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 16px;
+    align-items: start;
+  }
+
+  .playground-columns > div {
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+
+    .playground-aside {
+      position: static;
+      height: auto;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .playground-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<aside class="playground-aside">
+  <nav aria-label="Componentes de interacción">
+    <ul>
+      <li><a href="#seccion-alerts">Alerts</a></li>
+      <li><a href="#seccion-botones">Botones</a></li>
+      <li><a href="#seccion-checkboxes-radios">Checkboxes/Radios</a></li>
+      <li><a href="#seccion-dialogs">Dialogs</a></li>
+      <li><a href="#seccion-menus">Menús</a></li>
+      <li><a href="#seccion-toasts">Toasts</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<main class="playground-main">
+
+  <section id="seccion-alerts" class="playground-section">
+    <h2>Alerts</h2>
+    <div class="playground-columns">
+      <div>
+        <div class="c-alert c-alert--success" role="status">
+          <span class="c-alert-icon" aria-hidden="true">✔</span>
+          <p class="c-alert-message">El producto se guardó correctamente.</p>
+          <button type="button" class="c-alert-close" aria-label="Cerrar alerta">✕</button>
+        </div>
+
+        <div class="c-alert c-alert--error" role="alert">
+          <span class="c-alert-icon" aria-hidden="true">✕</span>
+          <p class="c-alert-message">No se pudo procesar el pago. Intenta de nuevo.</p>
+          <button type="button" class="c-alert-close" aria-label="Cerrar alerta">✕</button>
+        </div>
+
+        <div class="c-alert c-alert--warning" role="alert">
+          <span class="c-alert-icon" aria-hidden="true">⚠</span>
+          <p class="c-alert-message">Este producto tiene poco stock disponible.</p>
+          <button type="button" class="c-alert-close" aria-label="Cerrar alerta">✕</button>
+        </div>
+
+        <div class="c-alert c-alert--info" role="status">
+          <span class="c-alert-icon" aria-hidden="true">ℹ</span>
+          <p class="c-alert-message">Los cambios se sincronizan automáticamente cada 5 minutos.</p>
+          <button type="button" class="c-alert-close" aria-label="Cerrar alerta">✕</button>
+        </div>
+      </div>
+      <div>
+        <p>El botón de cerrar es focoable y se activa con <strong>Enter</strong> o <strong>Espacio</strong>. Las variantes de error y advertencia usan <code>role="alert"</code> (interrumpen al lector de pantalla de inmediato); éxito e informativo usan <code>role="status"</code> (se anuncian sin interrumpir). Ninguna variante atrapa el foco ni lo mueve automáticamente al aparecer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seccion-botones" class="playground-section">
+    <h2>Botones</h2>
+    <div class="playground-columns">
+      <div>
+        <button type="button" class="c-btn c-btn--primary">Guardar</button>
+        <button type="button" class="c-btn c-btn--secondary">Cancelar</button>
+        <button type="button" class="c-btn c-btn--destructive">Eliminar</button>
+        <button type="button" class="c-btn c-btn--icon" aria-label="Más opciones">⋮</button>
+      </div>
+      <div>
+        <p>Todos son <code>&lt;button&gt;</code> nativos: reciben foco con <strong>Tab</strong> y se activan con <strong>Enter</strong> o <strong>Espacio</strong>. El icon button no tiene texto visible, por lo que su <code>aria-label</code> es obligatorio para que un lector de pantalla anuncie su propósito.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seccion-checkboxes-radios" class="playground-section">
+    <h2>Checkboxes/Radios</h2>
+    <div class="playground-columns">
+      <div>
+        <fieldset class="c-check-group">
+          <legend>Filtrar tabla por estado</legend>
+          <label class="c-check">
+            <input type="checkbox" name="estado" value="activo">
+            Activo
+          </label>
+          <label class="c-check">
+            <input type="checkbox" name="estado" value="pausado">
+            Pausado
+          </label>
+          <label class="c-check">
+            <input type="checkbox" name="estado" value="agotado">
+            Agotado
+          </label>
+        </fieldset>
+
+        <fieldset class="c-radio-group">
+          <legend>Ordenar por</legend>
+          <label class="c-radio">
+            <input type="radio" name="orden" value="reciente" checked>
+            Más reciente
+          </label>
+          <label class="c-radio">
+            <input type="radio" name="orden" value="precio">
+            Precio
+          </label>
+          <label class="c-radio">
+            <input type="radio" name="orden" value="nombre">
+            Nombre
+          </label>
+        </fieldset>
+      </div>
+      <div>
+        <p><strong>Tab</strong> mueve el foco al grupo; dentro de un grupo de radios, las <strong>flechas</strong> ↑↓/←→ cambian la opción seleccionada (un solo punto de tabulación por grupo). <strong>Espacio</strong> marca/desmarca un checkbox o selecciona el radio enfocado. El <code>&lt;legend&gt;</code> de cada <code>&lt;fieldset&gt;</code> se anuncia junto con cada opción.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seccion-dialogs" class="playground-section">
+    <h2>Dialogs</h2>
+    <div class="playground-columns">
+      <div>
+        <button type="button" class="c-btn c-btn--destructive" data-dialog-target="dialog-eliminar">Eliminar producto</button>
+
+        <dialog id="dialog-eliminar" class="c-dialog" aria-labelledby="dialog-eliminar-title">
+          <h2 id="dialog-eliminar-title" class="c-dialog-title">¿Eliminar este producto?</h2>
+          <p>Esta acción no se puede deshacer. El producto se eliminará de tu catálogo de forma permanente.</p>
+          <div class="c-dialog-actions">
+            <button type="button" class="c-btn c-btn--secondary" data-dialog-cancel>Cancelar</button>
+            <button type="button" class="c-btn c-btn--destructive" data-dialog-confirm>Eliminar</button>
+          </div>
+        </dialog>
+      </div>
+      <div>
+        <p><strong>Enter</strong> o <strong>Espacio</strong> sobre el botón "Eliminar producto" abre el diálogo como modal (<code>.showModal()</code>). <strong>Escape</strong> lo cierra. Mientras está abierto, el foco queda atrapado dentro del diálogo (no puede salir con Tab hacia el resto de la página) y al cerrarse — por Escape, "Cancelar" o "Eliminar" — el foco vuelve al botón que lo abrió.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seccion-menus" class="playground-section">
+    <h2>Menús</h2>
+    <div class="playground-columns">
+      <div>
+        <button
+          type="button"
+          class="c-btn c-btn--secondary c-menu-account-toggle"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="menu-cuenta-texto"
+        >Cuenta ▾</button>
+        <ul id="menu-cuenta-texto" class="c-menu-account" hidden>
+          <li><a href="#">Perfil</a></li>
+          <li><a href="#">Configuración</a></li>
+          <li><button type="button">Cerrar sesión</button></li>
+        </ul>
+
+        <button
+          type="button"
+          class="c-btn c-btn--icon c-menu-account-toggle"
+          aria-label="Más opciones"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="menu-cuenta-icono"
+        >⋮</button>
+        <ul id="menu-cuenta-icono" class="c-menu-account" hidden>
+          <li><a href="#">Perfil</a></li>
+          <li><a href="#">Configuración</a></li>
+          <li><button type="button">Cerrar sesión</button></li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Enter</strong> o <strong>Espacio</strong> (o clic) en el trigger abre el desplegable y su <code>aria-expanded</code> pasa a <code>"true"</code>. <strong>Escape</strong> lo cierra y devuelve el foco al trigger. Un clic fuera del menú también lo cierra, pero sin devolver el foco. Ambos triggers —el botón de texto y el icon button— comparten la clase <code>c-menu-account-toggle</code> y abren el mismo tipo de menú.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seccion-toasts" class="playground-section">
+    <h2>Toasts</h2>
+    <div class="playground-columns">
+      <div>
+        <button type="button" class="c-btn c-btn--secondary" data-toast-demo="success">Disparar toast de éxito</button>
+        <button type="button" class="c-btn c-btn--secondary" data-toast-demo="error">Disparar toast de error</button>
+
+        <div class="c-toast-container" aria-live="polite" aria-atomic="false">
+          <div class="c-toast c-toast--success">Producto publicado correctamente.</div>
+          <div class="c-toast c-toast--error">No se pudo actualizar el inventario.</div>
+        </div>
+      </div>
+      <div>
+        <p>Los toasts no son foco-interactivos: no reciben Tab ni roban el foco de lo que el usuario esté haciendo. El contenedor usa <code>aria-live="polite"</code>, así que un lector de pantalla los anuncia en cuanto termina de leer lo que estaba leyendo. Desaparecen solos después de unos segundos y nunca hay más de 3 visibles a la vez — el más antiguo se retira si aparece un cuarto.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
