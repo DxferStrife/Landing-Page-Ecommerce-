@@ -1,16 +1,34 @@
-.c-check-group {
-    border-radius: var(--border-radius);
- }
-
-.c-check { 
-    cursor: pointer;
+.c-check-group,
+.c-radio-group {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-container);
+    padding: var(--space-5) var(--space-5) var(--space-4);
+    margin: 0 0 var(--space-5);
+    color: var(--text-strong);
 }
 
-.c-radio-group {
-    border-radius: var(--border-radius);
- }
- 
-.c-radio { 
+.c-check-group legend,
+.c-radio-group legend {
+    padding: 0 var(--space-2);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+}
+
+.c-check,
+.c-radio {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+    cursor: pointer;
+    font-size: var(--text-base);
+}
+
+.c-check input,
+.c-radio input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
     cursor: pointer;
 }
 

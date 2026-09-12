@@ -1,12 +1,28 @@
 .c-dialog {
-    border-radius: var(--border-radius);
- }
-.c-dialog-title { }
-.c-dialog-actions { 
+    border: none;
+    border-radius: var(--radius-container);
+    padding: var(--space-6);
+    max-width: 420px;
+    color: var(--text-strong);
+    background: var(--surface-raised);
+    box-shadow: 0 20px 48px -12px rgba(16, 22, 31, 0.35);
 }
 
-.c-dialog::backdrop{
-    background: rgba(0,0,0, 0.5);
+.c-dialog-title {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+}
+
+.c-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.c-dialog::backdrop {
+    background: rgba(16, 22, 31, 0.5);
 }
 
 @media (max-width: 768px) {

@@ -1,68 +1,86 @@
-.c-alert { 
+.c-alert {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-radius: var(--border-radius);
-    margin: 3px;
+    gap: var(--space-3);
+    border-radius: var(--radius-container);
+    border: 1px solid transparent;
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-3);
+    color: var(--text-strong);
+    font-size: var(--text-base);
 }
 
-.c-alert--success { 
-    border: var(--border) solid var(--semantic-succes);
-    
+.c-alert--success {
+    background: var(--success-bg);
+    border-color: var(--success);
 }
 
-.c-alert--error{
-    border: var(--border) solid var(--semantic-error);
+.c-alert--error {
+    background: var(--danger-bg);
+    border-color: var(--danger);
 }
 
-.c-alert--warning{
-    border: var(--border) solid var(--semantic-warning);
+.c-alert--warning {
+    background: var(--warning-bg);
+    border-color: var(--warning);
 }
 
-.c-alert--info{
-    border: var(--border) solid var(--semantic-info);
+.c-alert--info {
+    background: var(--info-bg);
+    border-color: var(--info);
 }
 
-.c-alert--success .c-alert-icon { 
-    color: var(--semantic-succes);
+.c-alert--success .c-alert-icon {
+    color: var(--success);
 }
 
-.c-alert--error .c-alert-icon{
-    color: var(--semantic-error);
-
- }
-
-.c-alert--warning .c-alert-icon{ 
-    color: var(--semantic-warning)
+.c-alert--error .c-alert-icon {
+    color: var(--danger);
 }
 
-.c-alert--info .c-alert-icon{
-    color: var(--semantic-info)
- }
+.c-alert--warning .c-alert-icon {
+    color: var(--warning);
+}
+
+.c-alert--info .c-alert-icon {
+    color: var(--info);
+}
 
 .c-alert-icon {
-    padding: 10px;
- }
+    flex: 0 0 auto;
+    font-weight: 700;
+}
 
-.c-alert-message { 
-    margin: 10;
+.c-alert-message {
+    flex: 1 1 auto;
+    margin: 0;
 }
 
 .c-alert-close {
-    border: 2px;
-    border-radius: 10px;
-    margin: 1vw;
+    flex: 0 0 auto;
+    border: none;
+    background: none;
+    border-radius: var(--radius-control);
+    color: var(--text-muted);
+    font-size: var(--text-base);
+    line-height: 1;
+    padding: var(--space-1);
     cursor: pointer;
- }
- 
- .c-alert-close:hover {
-   opacity: 0.8;
-   transition-duration: 0.12s;
- }
+}
 
- .c-alert-close:active {
-    transform: scale(0.90);
- }
+.c-alert-close:hover {
+    color: var(--text-strong);
+}
+
+.c-alert-close:active {
+    transform: scale(0.9);
+}
+
+.c-alert-close:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+}
 
 @media (max-width: 768px) {
 }

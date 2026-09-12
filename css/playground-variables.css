@@ -1,0 +1,80 @@
+/* Tokens exclusivos del playground de componentes (playground.html).
+   Se cargan vía styles.css en las 3 páginas del sitio, pero se scopean con
+   :has(.playground-main) para que solo apliquen en playground.html y nunca
+   sobrescriban los tokens de variables.css (--font-display/body/mono, etc.)
+   en index.html/proyectos.html/precios.html. */
+html:has(.playground-main) {
+  /* Superficie y texto */
+  --surface-page: #EEF1F6;
+  --surface-raised: #FFFFFF;
+  --text-strong: #10161F;
+  --text-muted: #4A5568;
+  --border-subtle: #D3DAE5;
+  --border-strong: #7E889B;
+
+  /* Marca y estado */
+  --accent: #1F7A6C;
+  --accent-hover: #14544A;
+  --on-accent: #FFFFFF;
+  --highlight: #F2A93B;
+  --on-highlight: #5C3B0A;
+  --success: #1F7A6C;  --success-bg: #E3F1EE;
+  --danger: #B3261E;   --danger-bg: #FBE9E7;
+  --warning: #A35B06;  --warning-bg: #FDF0DC;
+  --info: #2456B8;     --info-bg: #E6EDFA;
+  --focus-ring: #1F7A6C;
+
+  /* Tipografía */
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, Menlo, monospace;
+  --text-xs: 12px;   --text-sm: 14px;   --text-base: 16px;
+  --text-md: 18px;   --text-lg: 20px;   --text-xl: 24px;
+  --text-2xl: 30px;  --text-3xl: 38px;
+
+  /* Espaciado (base 4px) */
+  --space-1: 4px;    --space-2: 8px;    --space-3: 12px;
+  --space-4: 16px;   --space-5: 20px;   --space-6: 24px;
+  --space-8: 32px;   --space-10: 40px;  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radios */
+  --radius-control: 8px;
+  --radius-container: 16px;
+}
+
+/* Modo oscuro: sigue la preferencia del sistema si el usuario no eligió explícitamente
+   (mismo patrón de dos bloques que variables.css, con el mismo criterio de contraste:
+   superficies casi negras, texto casi blanco, y acentos aclarados para que sigan
+   legibles sobre un fondo oscuro). */
+@media (prefers-color-scheme: dark) {
+  html:has(.playground-main):not([data-theme="light"]) {
+    --surface-page: #10161F;
+    --surface-raised: #182130;
+    --text-strong: #EEF1F6;
+    --text-muted: #9AA7B8;
+    --border-subtle: #2A3444;
+    --border-strong: #62728A;
+    --accent: #35B39C;   --accent-hover: #4ECBB3;
+    --success: #35B39C;  --success-bg: #17342E;
+    --danger: #FF6B5E;   --danger-bg: #3A1E1B;
+    --warning: #E8A33D;  --warning-bg: #3A2C10;
+    --info: #6F9CE8;     --info-bg: #17233A;
+    --focus-ring: #35B39C;
+  }
+}
+/* Elección manual del usuario (persistida en localStorage vía js/theme.js) gana siempre */
+html:has(.playground-main)[data-theme="dark"] {
+  --surface-page: #10161F;
+  --surface-raised: #182130;
+  --text-strong: #EEF1F6;
+  --text-muted: #9AA7B8;
+  --border-subtle: #2A3444;
+  --border-strong: #62728A;
+  --accent: #35B39C;   --accent-hover: #4ECBB3;
+  --success: #35B39C;  --success-bg: #17342E;
+  --danger: #FF6B5E;   --danger-bg: #3A1E1B;
+  --warning: #E8A33D;  --warning-bg: #3A2C10;
+  --info: #6F9CE8;     --info-bg: #17233A;
+  --focus-ring: #35B39C;
+}

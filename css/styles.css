@@ -5,6 +5,7 @@
 @import "responsive.css";
 
 /* Playground de componentes de interacción (backoffice) */
+@import "playground-variables.css";
 @import "alerts.css";
 @import "botones.css";
 @import "checkboxes-radios.css";
