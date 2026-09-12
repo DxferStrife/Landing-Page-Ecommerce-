@@ -1,4 +1,6 @@
-.c-menu-account { }
+.c-menu-account { 
+    padding: 15px;
+}
 .c-menu-account-toggle { }
 
 @media (max-width: 768px) {

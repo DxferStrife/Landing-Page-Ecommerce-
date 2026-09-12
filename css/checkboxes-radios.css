@@ -1,7 +1,18 @@
-.c-check-group { }
-.c-check { }
-.c-radio-group { }
-.c-radio { }
+.c-check-group {
+    border-radius: var(--border-radius);
+ }
+
+.c-check { 
+    cursor: pointer;
+}
+
+.c-radio-group {
+    border-radius: var(--border-radius);
+ }
+ 
+.c-radio { 
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
 }

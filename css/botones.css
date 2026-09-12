@@ -1,8 +1,40 @@
-.c-btn { }
-.c-btn--primary { }
-.c-btn--secondary { }
-.c-btn--destructive { }
-.c-btn--icon { }
+.c-btn {
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 10px -2px rgba(255, 255, 255, 0.5);
+ }
+
+ .c-btn:hover{
+    opacity: 0.8;
+    transition-duration: 0.11s;
+ }
+
+ .c-btn:active{
+    transform: scale(0.9);
+    box-shadow:none;
+ }
+.c-btn--primary { 
+    background-color:var(--semantic-succes)
+}
+
+.c-btn--secondary {
+    background-color:var(--semantic-error)
+ }
+
+.c-btn--destructive { 
+    background-color: var(--semantic-warning);
+}
+
+.c-btn--icon { 
+    
+}
+
+.c-btn--session{
+    margin: 12px;
+}
 
 @media (max-width: 768px) {
 }

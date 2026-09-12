@@ -154,9 +154,9 @@
     <h2>Botones</h2>
     <div class="playground-columns">
       <div>
-        <button type="button" class="c-btn c-btn--primary">Guardar</button>
-        <button type="button" class="c-btn c-btn--secondary">Cancelar</button>
-        <button type="button" class="c-btn c-btn--destructive">Eliminar</button>
+        <button type="button" class="c-btn c-btn--primary" aria-label="Guardar">Guardar</button>
+        <button type="button" class="c-btn c-btn--secondary" aria-label="Cancelar">Cancelar</button>
+        <button type="button" class="c-btn c-btn--destructive"aria-label="Eliminar">Eliminar</button>
         <button type="button" class="c-btn c-btn--icon" aria-label="Más opciones">⋮</button>
       </div>
       <div>
@@ -242,7 +242,7 @@
         <ul id="menu-cuenta-texto" class="c-menu-account" hidden>
           <li><a href="#">Perfil</a></li>
           <li><a href="#">Configuración</a></li>
-          <li><button type="button">Cerrar sesión</button></li>
+          <li><button type="button" class="c-btn c-btn--sesion">Cerrar sesión</button></li>
         </ul>
 
         <button
@@ -269,7 +269,7 @@
     <h2>Toasts</h2>
     <div class="playground-columns">
       <div>
-        <button type="button" class="c-btn c-btn--secondary" data-toast-demo="success">Disparar toast de éxito</button>
+        <button type="button" class="c-btn c-btn--primary" data-toast-demo="success">Disparar toast de éxito</button>
         <button type="button" class="c-btn c-btn--secondary" data-toast-demo="error">Disparar toast de error</button>
 
         <div class="c-toast-container" aria-live="polite" aria-atomic="false">

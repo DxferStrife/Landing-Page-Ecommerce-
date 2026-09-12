@@ -37,6 +37,26 @@ function initDialogs(): void {
     dialog.addEventListener("close", () => {
       lastFocused?.focus();
     });
+
+    dialog.addEventListener("keydown", (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+
+      const focusable = dialog.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
   });
 }
 
@@ -72,8 +92,9 @@ function initMenus(): void {
       }
     });
 
-    menu.addEventListener("keydown", (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+    document.addEventListener("keydown", (event: KeyboardEvent) => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      if (isOpen && event.key === "Escape") {
         closeMenu(true);
       }
     });
