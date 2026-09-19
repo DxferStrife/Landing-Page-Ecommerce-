@@ -35,7 +35,7 @@
     --error:      #F87171;
     --header-bg:  rgba(13,13,13,0.92);
     /* Fijos a propósito (no invierten con el tema): paneles/botones de marca de alto
-       contraste (.btn-primary, .nav-cta, .caso-figure, .skip-link) deben verse
+       contraste (.caso-figure, .skip-link) deben verse
        siempre como una superficie oscura con texto claro, en vez de heredar --ink/--paper
        que se invierten con el tema y convertirían ese panel en un bloque blanco sobre fondo
        claro (o lo camuflarían contra el fondo en modo oscuro). */
@@ -108,9 +108,9 @@
     --grano-opacidad: 0.34; /* sobre fondo claro el ruido se nota más que sobre negro */
   }
   /* --cta-surface queda fijo en negro; en modo oscuro coincide en luminancia con el fondo de
-     página (--paper también oscuro) y se volvería invisible sin un borde propio. */
-  :root[data-theme="dark"] .btn-primary,
-  :root[data-theme="dark"] .nav-cta,
+     página (--paper también oscuro) y se volvería invisible sin un borde propio.
+     (.btn-primary y .nav-cta ya no lo usan: su fondo es --paper y su borde de 2px coral
+     viene de .btn-primary, igual en ambos modos.) */
   :root[data-theme="dark"] .caso-figure{
     border: 1px solid var(--accent);
   }

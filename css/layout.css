@@ -228,15 +228,13 @@
   .main-nav a:not(.nav-cta):focus-visible::after{
     right: 0;
   }
-  .nav-cta{
-    background: var(--cta-surface);
-    color: var(--cta-ink);
-    padding: 0.55em 1.1em;
-    border-radius: 999px;
+  /* El botón de contacto del nav es un .btn.btn-primary más (mismos colores, borde de 2px y
+     hover); aquí solo se compacta para el header y se anula lo heredado de `.main-nav a`
+     (mayor especificidad que .btn) para que no cambie el peso ni el relleno de la fuente. */
+  .main-nav .nav-cta{
+    padding: 0.55em 1.2em;
     font-weight: 600;
   }
-  /* Antes var(--accent-hover) #F06A50 (2.7:1 con texto blanco). */
-  .nav-cta:hover{ background: var(--accent-strong); }
 
   /* ---------- Selector de modo claro/oscuro ---------- */
   .theme-toggle{
