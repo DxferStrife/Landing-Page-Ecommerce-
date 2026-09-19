@@ -3,7 +3,7 @@
     text-transform: uppercase;
     letter-spacing: 0.14em;
     font-size: 0.75rem;
-    color: var(--teal-dark);
+    color: var(--accent-text);
     font-weight: 600;
     margin: 0 0 0.9em;
   }
@@ -22,17 +22,66 @@
     transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
   .btn:hover{ transform: translateY(-2px); }
+
   .btn-primary{
-    background: var(--cta-surface);
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+  .btn-primary:hover{
+    /* Antes var(--accent) #E35336: con texto blanco daba 3.4:1 (no AA). */
+    background: var(--accent-strong);
     color: var(--cta-ink);
   }
-  .btn-primary:hover{ background: var(--teal-dark); }
+
+  /* CTA principal sólido: coral de alto contraste, para la acción prioritaria de la página. */
+  .btn-solid{
+    background: var(--accent-strong);
+    color: var(--cta-ink);
+    border-color: var(--accent-strong);
+  }
+  .btn-solid:hover{
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+  }
+
   .btn-ghost{
     background: transparent;
     color: var(--ink);
     border-color: var(--ink);
   }
   .btn-ghost:hover{ background: var(--ink); color: var(--paper); }
+
+  /* ---------- Luz coral granulada (hero y bombilla) ----------
+     El elemento pinta la forma de la luz en su propio `background` a partir de --forma-luz;
+     esta clase le suma el grano de película por encima, recortado con la misma forma (mask),
+     para que el ruido solo se vea donde hay luz y se desvanezca junto con ella. */
+  /* isolation: el grano se mezcla contra la propia luz del elemento y no contra lo que haya
+     detrás, así se ve igual aunque un ancestro cree un contexto de apilado (p. ej. la
+     bombilla mientras anima su opacidad). */
+  .luz-granulada{ position: absolute; pointer-events: none; isolation: isolate; }
+  .luz-granulada::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--grano);
+    background-size: 160px 160px;
+    opacity: var(--grano-opacidad);
+    mix-blend-mode: overlay;
+    -webkit-mask-image: var(--forma-luz);
+    mask-image: var(--forma-luz);
+    animation: grano-vibrar 0.7s steps(1) infinite;
+  }
+  /* El grano de película se mueve cuadro a cuadro; sin esto parece una textura pegada. */
+  @keyframes grano-vibrar{
+    0%  { background-position: 0 0; }
+    25% { background-position: -42px 26px; }
+    50% { background-position: 34px -32px; }
+    75% { background-position: -24px -14px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .luz-granulada::after{ animation: none; }
+  }
 
   /* ---------- Carousel (pure CSS, radio-driven) ---------- */
   .carrusel{
@@ -41,7 +90,7 @@
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     padding: 18px;
-    box-shadow: 0 24px 48px -24px rgba(16,22,31,0.28);
+    box-shadow: 0 24px 48px -24px rgba(0,0,0,0.28);
   }
   .carrusel-radios{ position: absolute; }
   .carrusel-radios input{
@@ -97,8 +146,8 @@
     gap: 6px;
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    background: var(--gold);
-    color: var(--gold-ink);
+    background: var(--accent-strong); /* antes var(--accent) #E35336 (3.4:1 con texto blanco) */
+    color: var(--cta-ink);
     padding: 4px 10px;
     border-radius: 999px;
     margin-top: 12px;
@@ -136,7 +185,7 @@
   #cs-1:checked ~ .carrusel-bottom label[for="cs-1"],
   #cs-2:checked ~ .carrusel-bottom label[for="cs-2"],
   #cs-3:checked ~ .carrusel-bottom label[for="cs-3"]{
-    background: var(--teal);
+    background: var(--accent);
   }
   .carrusel-arrows{ display: flex; gap: var(--space-2xs); }
   .arrow-label{
@@ -166,11 +215,11 @@
     padding: 26px;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
-  .servicio-card:hover{ border-color: var(--teal); transform: translateY(-4px); }
+  .servicio-card:hover{ border-color: var(--accent); transform: translateY(-4px); }
   .servicio-mark{
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--teal-dark);
+    color: var(--accent-text);
     font-weight: 700;
     letter-spacing: 0.08em;
   }
@@ -185,12 +234,12 @@
     padding: 26px;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
-  .proceso-card:hover{ border-color: var(--teal); transform: translateY(-4px); }
+  .proceso-card:hover{ border-color: var(--accent); transform: translateY(-4px); }
   .proceso-num{
     display: block;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--teal-dark);
+    color: var(--accent-text);
     font-weight: 700;
     letter-spacing: 0.08em;
   }
@@ -212,17 +261,17 @@
     gap: 16px;
     height: 100%;
   }
-  .precio-card:hover{ transform: translateY(-4px); border-color: var(--teal); }
+  .precio-card:hover{ transform: translateY(-4px); border-color: var(--accent); }
   .precio-card--popular{
-    border-color: var(--teal);
-    box-shadow: 0 24px 48px -28px rgba(16,22,31,0.35);
+    border-color: var(--accent);
+    box-shadow: 0 24px 48px -28px rgba(0,0,0,0.35);
   }
   .precio-badge{
     position: absolute;
     top: -14px;
     left: 28px;
-    background: var(--gold);
-    color: var(--gold-ink);
+    background: var(--accent-strong); /* antes var(--accent) #E35336 (3.4:1 con texto blanco) */
+    color: var(--cta-ink);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 700;
@@ -236,7 +285,7 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.78rem;
-    color: var(--teal-dark);
+    color: var(--accent-text);
     font-weight: 700;
   }
   .precio-card h2{ font-size: 1.4rem; margin: 0; }
@@ -259,7 +308,7 @@
   }
   .precio-features li::before{
     content: "✓";
-    color: var(--teal);
+    color: var(--accent);
     font-weight: 700;
     flex-shrink: 0;
   }
@@ -276,7 +325,7 @@
     gap: var(--space-md);
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
-  .testimonio-card:hover{ border-color: var(--teal); transform: translateY(-4px); }
+  .testimonio-card:hover{ border-color: var(--accent); transform: translateY(-4px); }
   .testimonio-card blockquote{
     margin: 0;
   }
@@ -286,7 +335,7 @@
     font-family: var(--font-display);
     font-size: 2.6rem;
     line-height: 0.6;
-    color: var(--teal);
+    color: var(--accent);
     margin-bottom: 0.6em;
   }
   .testimonio-card blockquote p{
@@ -319,6 +368,17 @@
     font-weight: 600;
     color: var(--ink);
   }
+  .form-nota{
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  /* Ejemplo de formato visible y permanente (no placeholder: desaparece al escribir), enlazado
+     al campo con aria-describedby para que el lector de pantalla también lo anuncie. */
+  .form-hint{
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
   .form-field input,
   .form-field select,
   .form-field textarea{
@@ -326,16 +386,22 @@
     font: inherit;
     color: var(--ink);
     background: var(--paper);
-    border: 1px solid var(--line);
+    /* Antes var(--line) (1.2–1.4:1 contra el fondo); los bordes de campo necesitan ≥3:1. */
+    border: 1px solid var(--ink-subtle);
     border-radius: var(--radius-sm);
     padding: 0.75em 0.9em;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder{
+    color: var(--ink-soft);
+    opacity: 1;
+  }
   .form-field input:focus,
   .form-field select:focus,
   .form-field textarea:focus{
-    border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(31,122,108,0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(227,83,54,0.15);
   }
   .form-field textarea{
     resize: vertical;
@@ -352,7 +418,7 @@
   .form-field input.is-invalid:focus,
   .form-field select.is-invalid:focus,
   .form-field textarea.is-invalid:focus{
-    box-shadow: 0 0 0 3px rgba(179,38,30,0.15);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--error) 15%, transparent);
   }
   .form-error{
     display: block;
@@ -365,7 +431,6 @@
   .form-contacto button.btn{
     align-self: flex-start;
     font-family: var(--font-body);
-    border: none;
     cursor: pointer;
   }
   .form-feedback{
@@ -374,5 +439,5 @@
     min-height: 1.2em;
   }
   .form-feedback:empty{ display: none; }
-  .form-feedback.is-success{ color: var(--teal-dark); }
+  .form-feedback.is-success{ color: var(--accent-text); }
   .form-feedback.is-error{ color: var(--error); }

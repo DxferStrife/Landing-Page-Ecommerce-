@@ -1,10 +1,15 @@
   /* ---------- Responsive (mobile-first: estilos base = móvil, se amplían desde acá) ---------- */
   @media (min-width: 640px){
     .footer-grid{ grid-template-columns: 1fr 1fr; }
-    .hero{ padding-block: 192px 88px; }
     .section{ padding-block: var(--space-6xl); }
     .contacto{ padding: var(--space-5xl) var(--space-3xl); }
     .contacto-form-wrap{ padding: 36px; margin-top: var(--space-3xl); }
+
+    /* Servicios, proceso y testimonios tienen 4 tarjetas: columnas fijas (2 → 4) en vez de
+       auto-fit, para que ninguna resolución deje una tarjeta huérfana (3+1). */
+    .servicios-grid,
+    .proceso-grid,
+    .testimonios-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (min-width: 900px){
     .section{ padding-block: 120px; }
@@ -12,7 +17,7 @@
     .servicios-grid,
     .proceso-grid,
     .testimonios-grid{
-      grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+      grid-template-columns: repeat(2, minmax(0, 320px));
       justify-content: center;
       gap: var(--space-2xl);
     }
@@ -25,10 +30,36 @@
     .proceso-card p{ font-size: 1rem; }
     .testimonio-card blockquote p{ font-size: 1.05rem; }
 
-    .hero-inner{ grid-template-columns: 1fr; gap: var(--space-5xl); }
-    .hero-showcase img{width: 100%;}
-    .hero-media{ border-radius: var(--radius-lg); }
-    .hero-media::after{ display: none; }
+    /* Los dos grupos del hero pasan a fila: identidad a la izquierda, propuesta + CTA a la
+       derecha, ambos apoyados en la misma línea base inferior. El bloque se centra en el
+       espacio bajo el kicker (margin auto): el padding ya no lo empuja al borde inferior. */
+    .hero-brand-inner{
+      padding-block: var(--space-4xl);
+    }
+    .hero-brand-main{
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-6xl);
+      margin-block: auto;
+    }
+    .hero-brand-pitch{ padding-bottom: var(--space-2xs); }
+
+    /* La bombilla pasa al hueco libre a la derecha del encabezado (.section-head mide 640px)
+       y entra deslizándose desde el borde derecho. */
+    .section-bombilla{ padding-bottom: 120px; }
+    .bombilla{
+      /* 180px de ancho ≈ 300px de alto: cabe en la banda del encabezado sin pisar la
+         cuadrícula, que arranca más abajo. */
+      inset: 0 max(var(--space-xl), calc(50% - var(--maxw) / 2 + var(--space-xl))) auto auto;
+      width: 180px;
+      margin-inline: 0;
+    }
+    @keyframes bombilla-entrar{
+      from{ opacity: 0; transform: translateX(130px); }
+      to{ opacity: 1; transform: none; }
+    }
+
     .caso{ grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
     .caso-figure{ order: 0; }
     .caso--reverse .caso-figure{ order: -1; }
@@ -64,4 +95,9 @@
     .theme-toggle-item{ display: flex; }
 
     html:has(.nav-toggle-input:checked){ overflow: visible; }
+  }
+  @media (min-width: 1180px){
+    .servicios-grid,
+    .proceso-grid,
+    .testimonios-grid{ grid-template-columns: repeat(4, minmax(0, 320px)); }
   }

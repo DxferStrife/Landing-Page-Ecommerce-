@@ -1,77 +1,148 @@
-# Vitrina — Landing Page (Proyecto Universitario)
+# Vitrina Studio
 
-Landing page para **Vitrina**, un servicio ficticio de creación de tiendas de e-commerce a medida. Proyecto académico centrado en maquetación responsive, accesibilidad, SEO técnico y validación de formularios con TypeScript.
+**No hacemos páginas web. Hacemos que la competencia se vea vieja.**
 
-## Estructura del proyecto
+> Diseñamos y construimos plataformas web y e-commerce de alto rendimiento, con SEO real y automatización inteligente de ventas — para marcas que no van a pedir permiso para destacar.
+
+---
+
+## 📌 Tabla de contenido
+
+- [Sobre el proyecto](#sobre-el-proyecto)
+- [Propósito](#propósito)
+- [Manifiesto](#manifiesto)
+- [Personalidad de marca](#personalidad-de-marca)
+- [Valores](#valores)
+- [Tono de voz](#tono-de-voz)
+  - [Vocabulario](#vocabulario)
+  - [Ejemplos por canal](#ejemplos-por-canal)
+- [Taglines](#taglines)
+- [Cómo contribuir manteniendo la voz de marca](#cómo-contribuir-manteniendo-la-voz-de-marca)
+- [Licencia](#licencia)
+
+---
+
+## Sobre el proyecto
+
+Este repositorio contiene el desarrollo del sitio/producto de **Vitrina Studio**: estudio digital especializado en diseño web no-genérico, arquitectura de e-commerce, SEO técnico y automatización de ventas.
+
+Este README documenta la **identidad de marca** que debe guiar cualquier copy, UI text, nombres de componentes, mensajes de error, emails transaccionales o contenido visible al usuario dentro de este proyecto. Si estás escribiendo algo que el cliente final va a leer, este documento es tu referencia. Para el sistema visual (color, tipografía, logotipo, layout), ver [CLAUDE.md](CLAUDE.md).
+
+---
+
+## Propósito
+
+> Existimos porque la mayoría de agencias entrega lo mismo con un logo distinto, y eso ya no alcanza. Construimos infraestructura digital para marcas que están dispuestas a romper con lo esperado — sin sacrificar rendimiento real ni ventas que dependen de un sistema, no de que alguien esté despierto.
+
+- **Misión:** Diseñar y construir plataformas web y e-commerce de alto rendimiento, con SEO real y automatización inteligente de ventas, para marcas que están listas para dejar de parecer todas iguales.
+- **Visión:** Ser el estudio que la industria señala cuando quiere explicar cómo se ve romper las reglas y ganar de todas formas.
+
+---
+
+## Manifiesto
+
+> Hay una forma en la que "siempre se ha hecho esto." Nosotros no la usamos.
+>
+> No hacemos plantillas con el logo cambiado. No entregamos sitios bonitos que cargan en 6 segundos. No mandamos un PDF de estrategia y desaparecemos hasta la factura del próximo mes.
+>
+> Construimos. Cada línea de código, cada pixel, cada automatización existe para una sola cosa: que tu marca no compita por ser vista — que sea imposible de ignorar. Y que cada visita se convierta en algo medible, no en una promesa de agencia.
+>
+> Somos atípicos porque lo típico ya se probó y no funcionó. No suavizamos el diagnóstico para quedar bien: si tu sitio no convierte, te decimos por qué, en la cara, con el dato en la mano. Retamos lo que "siempre se ha hecho así" porque nadie contrata un estudio disruptivo para que le confirme lo que ya sabía.
+>
+> Lo que sí sostenemos es la palabra: sin letra pequeña, sin humo, sin desaparecer después de cobrar el anticipo. Eso no es amabilidad — es que un estudio que reta al mercado no puede darse el lujo de fallarle a quien confió primero.
+>
+> Si tu marca ya dejó de conformarse, nosotros ya dejamos de hacer lo normal.
+>
+> **Vitrina Studio. Fuera de la caja, dentro de los resultados.**
+
+---
+
+## Personalidad de marca
+
+**Arquetipo: El Rebelde**
+
+Reta a la industria, reta al status quo del cliente cuando hace falta, y no negocia el estándar por quedar bien. No es una marca que se preocupa por caer simpática — se preocupa por tener razón y demostrarlo con resultados.
+
+| Rasgo | Se traduce en... | No se traduce en... |
+|---|---|---|
+| Disruptiva | Cuestionar y romper lo "estándar" sin pedir permiso | Disrupción decorativa sin sustancia |
+| Directa | Decir qué funciona y qué no, sin rodeos | Ambigüedad para no incomodar |
+| Confrontativa | Señalar lo que está mal en el sitio/proceso del cliente | Grosería gratuita o falta de respeto |
+| Técnica | Vocabulario preciso del oficio, sin relleno | Jerga solo para impresionar |
+| Consistente | Cumplir lo que se promete, sin dramatizarlo como "cercanía" | Discurso de "somos como familia" |
+
+> *"No competimos por caer bien. Competimos por tener razón, y lo demostramos con el dato."*
+
+---
+
+## Valores
+
+| Valor | Descripción |
+|---|---|
+| **Autonomía creativa** | Nada de plantillas ni fórmulas ajenas. Cada proyecto se piensa desde cero, y si el cliente pide una plantilla con otro nombre, no es un proyecto para nosotros. |
+| **Confrontación honesta** | Si algo no funciona, se dice de frente y con el dato encima. No hay diagnóstico suavizado para no incomodar. |
+| **Transparencia en el proceso** | El cliente ve cada fase: wireframe → desarrollo → integración → entrega. Sin cajas negras. |
+| **Obsesión por las métricas** | Ninguna decisión se toma "porque se ve bien". Todo se valida con datos (Core Web Vitals, conversión, calificación de leads). |
+
+---
+
+## Tono de voz
+
+**Directa, confrontativa y técnica**, con términos del oficio en inglés cuando son estándar de la industria (*look and feel, funnel, Core Web Vitals, checkout, retainer*) — porque son las palabras exactas que el cliente ya reconoce, no para presumir.
+
+| Pilar | Significado | Ejemplo |
+|---|---|---|
+| Reta, no complace | Señala lo que no funciona, sin suavizarlo | "Tu web se ve bien. El problema es que carga en 6 segundos y eso te está costando clientes." |
+| Prueba, no promete | Cada afirmación se respalda con dato o proceso | "Este es el before/after de Core Web Vitals. No es opinión, es Lighthouse." |
+| Habla como colega técnico | Vocabulario preciso, sin relleno corporativo | "Configuramos el motor de ventas para calificar leads antes de que lleguen a un humano." |
+| Cierra con autoridad, no con calidez | El reto se sostiene con el proceso, no con un abrazo verbal | "Esto se construye por sprints, con entregas medibles. No hay letra pequeña." |
+
+### Vocabulario
+
+**Usar:** disruptivo, no-genérico, fuera de la caja, atípico, embudo, Core Web Vitals, look and feel, funnel, retainer, sprint, performance, conversión, data-driven, romper el molde, sin filtro.
+
+**Evitar:** "solución integral", "sinergia", "trabajamos con pasión", "líderes en el mercado", "somos como familia", "te acompañamos en tu jornada", cualquier frase que suavice un diagnóstico técnico.
+
+### Ejemplos por canal
 
 ```
-├── index.html                 # Página principal (Hero, Servicios, Caso de éxito, Confianza, Sobre nosotros, Contacto)
-├── proyectos.html              # Portafolio de proyectos
-├── precios.html                 # Planes y precios
-├── css/
-│   └── styles.css              # Estilos (tokens, layout, componentes, responsive)
-├── ts/
-│   ├── theme.ts                 # Selector de modo claro/oscuro
-│   └── validacion-contacto.ts   # Validación del formulario de contacto
-├── js/                          # Salida compilada de /ts (generada por tsc, no editar a mano)
-├── img/                          # Imágenes y SVG del sitio
-├── robots.txt                    # Directivas para crawlers
-├── sitemap.xml                   # Mapa del sitio
-└── tsconfig.json                 # Configuración del compilador TypeScript
+Web (hero):
+"Tu competencia sigue usando plantillas. Nosotros construimos
+lo que hace que dejen de compararte con ellos."
+
+Instagram bio:
+"Infraestructura digital que rompe el molde 🚀 | Diseño · SEO real · Ventas automatizadas
+No competimos por caer bien."
+
+Apertura de propuesta comercial:
+"No te vamos a mandar un PDF genérico con capturas de Google.
+Esto es lo que está mal en tu sitio, lo que te está costando en pesos,
+y lo que construiríamos distinto — con fecha de entrega."
 ```
 
-## Cómo ejecutar
+---
 
-No requiere servidor ni build para ver el sitio: basta con abrir `index.html` en el navegador.
+## Taglines
 
-Para compilar TypeScript a JavaScript (necesario si se modifica algo en `/ts`):
+- Fuera de la caja, dentro de los resultados.
+- No genérico. Nunca.
+- No competimos por caer bien.
+- Infraestructura digital que reta lo estándar.
+- Tu competencia sigue esperando permiso. Nosotros ya rompimos el molde.
 
-```bash
-npm install
-npm run build
-```
+---
 
-Esto ejecuta `tsc` y regenera los archivos en `/js` a partir de `tsconfig.json`.
+## Cómo contribuir manteniendo la voz de marca
 
-## Checklist de requisitos cubiertos
+Si vas a escribir copy, microcopy, nombres de componentes UI, mensajes de error o cualquier texto visible en este proyecto:
 
-### Layout responsive (Flexbox + Grid)
-- **Grid** para estructuras de cuadrícula: `.hero-inner`, `.servicios-grid`, `.precios-grid`, `.proyectos-grid`, `.caso`, `.nosotros`, `.footer-grid`, `.confianza-list`, `.store-preview`, `.mock-grid`.
-- **Flexbox** para alineación en una dimensión: header, navegación, botones, `.contacto-actions`, `.form-contacto`, `.caso-stats`.
+1. Revisa el vocabulario permitido/evitado antes de redactar.
+2. Todo texto debe poder ubicarse en uno de los 4 pilares de tono (reta / prueba / habla técnico / cierra con autoridad).
+3. Nada de frases de agencia genérica ("solución integral", "líderes en el mercado") ni de suavizados tipo "te acompañamos".
+4. Ante la duda, pregúntate: *¿esto suena a plantilla o suena a Vitrina Studio?*
 
-### CSS con variables (design tokens)
-Definidos en `:root` en [css/styles.css](css/styles.css):
-- **Color**: `--paper`, `--ink`, `--gold`, `--teal`, `--line`, `--error`, etc. (con set alterno para modo oscuro).
-- **Espaciado**: escala `--space-3xs` → `--space-7xl`, usada en `gap`, `padding` y `margin` de los bloques estructurales (header, nav, hero, grids, formulario, footer).
-- **Tipografía**: `--font-display`, `--font-body`, `--font-mono`.
-- **Radios**: `--radius-sm`, `--radius-md`, `--radius-lg`.
+---
 
-### Mobile-first con media queries
-Los estilos base (sin media query) son los de móvil; se amplían progresivamente con `min-width: 640px` y `min-width: 900px` al final de `styles.css` (navegación en drawer → barra horizontal, grids de una columna → múltiples columnas, etc.).
+## Licencia
 
-### Accesibilidad (ARIA)
-- `skip-link` para saltar al contenido principal.
-- `aria-label` en logo, botones de menú/tema y enlaces con contexto ambiguo.
-- `aria-hidden="true"` en elementos puramente decorativos (íconos, fondos).
-- `aria-pressed` en el botón de modo oscuro/claro.
-- Formulario de contacto: cada campo tiene `aria-describedby` apuntando al `id` de su mensaje de error (`nombre-error`, `email-error`, `mensaje-error`), y cada error se marca con `role="alert"` para que el lector de pantalla lo anuncie automáticamente. El estado inválido se refleja con `aria-invalid="true"` vía TypeScript.
-- Contenedor de feedback del formulario con `role="status"` y `aria-live="polite"`.
-
-### SEO técnico
-- `robots.txt` con `Allow: /` y referencia al `sitemap.xml`.
-- `sitemap.xml` con las 3 páginas del sitio.
-- `<link rel="canonical">` en cada página.
-- **Open Graph**: `og:type`, `og:url`, `og:title`, `og:description`, `og:image` (+ `og:image:alt`), `og:locale` en `index.html`, `proyectos.html` y `precios.html`.
-- **Twitter Card**: `twitter:card` (`summary_large_image`), `twitter:title`, `twitter:description`, `twitter:image`, `twitter:image:alt`.
-
-> Nota: las URLs absolutas de `og:url`/`og:image` usan el dominio de ejemplo `https://www.vitrina.com` (el mismo ya usado en `sitemap.xml`/`robots.txt`), ya que el proyecto no está desplegado en un dominio real. Al publicarlo, reemplazar por la URL final.
-
-### Formulario de contacto con validación en TypeScript
-Implementado en [ts/validacion-contacto.ts](ts/validacion-contacto.ts) (compilado a `js/validacion-contacto.js`):
-- **Campos requeridos**: nombre, correo y mensaje se validan como obligatorios, con validación tanto en `blur` (al salir del campo) como en `submit`.
-- **Validación de formato**: correo electrónico validado contra una expresión regular (`EMAIL_REGEX`); el mensaje además exige un mínimo de 10 caracteres para evitar envíos vacíos de contenido.
-- **Mensajes de error claros y accesibles**: cada error se muestra en un `<span class="form-error" role="alert">` asociado a su campo mediante `aria-describedby`, y al enviar el formulario con errores el foco se mueve automáticamente al primer campo inválido.
-- El envío es simulado (no hay backend): al validar correctamente muestra un mensaje de éxito y resetea el formulario, ya que el objetivo del ejercicio es la validación en el cliente.
-
-## Modo oscuro
-Bonus no solicitado pero presente: selector de tema claro/oscuro persistido en `localStorage` ([ts/theme.ts](ts/theme.ts)), con fallback a la preferencia del sistema (`prefers-color-scheme`).
+_Pendiente de definir — agregar licencia del proyecto (MIT, propietaria, etc.)._

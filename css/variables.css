@@ -1,27 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700;800&display=swap');
+
  /* ---------- Tokens ---------- */
+ /* Modo oscuro = default (ground principal de la marca). El modo claro es la variante
+    secundaria y se define abajo, en :root[data-theme="light"]. */
  :root{
-    --paper:      #EEF1F6;
-    --paper-alt:  #FFFFFF;
-    --ink:        #10161F;
-    --ink-soft:   #4A5568;
-    --gold:       #F2A93B;
-    --gold-ink:   #5C3B0A;
-    --teal:       #1F7A6C;
-    --teal-dark:  #14544A;
-    --line:       #7E889B;
-    --focus:      #1F7A6C;
-    --error:      #B3261E;
-    --header-bg:  rgba(238,241,246,0.92);
-    /* Fijos a propósito (no invierten en modo oscuro): paneles/botones de marca de alto
-       contraste (.contacto, .btn-primary, .nav-cta, .skip-link) deben verse siempre como
-       una superficie oscura con texto claro, en vez de heredar --ink/--paper que se invierten
-       con el tema y convertían ese panel en un bloque blanco sobre fondo oscuro. */
-    --cta-surface: #10161F;
-    --cta-ink:     #EEF1F6;
+    --paper:      #0D0D0D;
+    --paper-alt:  #1A1A1A;
+    --ink:        #F2F2F0;
+    /* Jerarquía de texto secundario, igual que la etiqueta "studio" del sistema de marca:
+       en fondo oscuro el tono más legible (ash, más claro) es el de mayor jerarquía
+       (--ink-soft: captions/labels/texto secundario) y el más apagado (slate, más oscuro)
+       queda para metadata de menor jerarquía (--ink-subtle). En modo claro se invierten. */
+    --ink-soft:   #ABABAB;
+    /* Antes #6B6B6B (slate, 3.3:1 sobre --paper-alt: no pasaba AA). Ahora #8A8A8A (5.0:1). */
+    --ink-subtle: #8A8A8A;
+    --accent:       #E35336;
+    --accent-hover: #F06A50;
+    /* Coral para TEXTO de acento (.eyebrow, .servicio-mark, etc.). En oscuro reutiliza el
+       tono claro #F06A50 (antes se usaba --accent-hover directo; #E35336 en .eyebrow). */
+    --accent-text:  #F06A50;
+    /* Coral oscurecido para superficies coral con texto blanco encima (hover de botón, badges):
+       #E35336 con texto #F2F2F0 da 3.4:1 (no pasa AA); #C4391D da 4.7:1. */
+    --accent-strong: #c4391d;
+    /* Hover de las superficies coral sólidas: #C4391D sube a 6.1:1 con texto blanco. */
+    --accent-deep: #A82E14;
+    --line:       #2E2E2E;
+    --focus:      #E35336;
+    /* Antes #B3261E (2.7:1 sobre --paper-alt oscuro). Ahora #F87171 (6.3:1). */
+    --error:      #F87171;
+    --header-bg:  rgba(13,13,13,0.92);
+    /* Fijos a propósito (no invierten con el tema): paneles/botones de marca de alto
+       contraste (.btn-primary, .nav-cta, .caso-figure, .skip-link) deben verse
+       siempre como una superficie oscura con texto claro, en vez de heredar --ink/--paper
+       que se invierten con el tema y convertirían ese panel en un bloque blanco sobre fondo
+       claro (o lo camuflarían contra el fondo en modo oscuro). */
+    --cta-surface: #0D0D0D;
+    --cta-ink:     #F2F2F0;
+    --cta-ink-soft: #ABABAB; /* texto secundario sobre superficies fijas oscuras (8.5:1) */
+    /* Hero de marca: tonos que sí invierten con el tema (el hero dejó de ser superficie fija).
+       --hero-grid-rgb lo lee ts/hero-marca.ts para pintar el canvas del grid. Los alfas de la
+       luz coral (--luz-*) los comparten el hero y la bombilla de "cómo trabajamos". */
+    --hero-grid-rgb:   242,242,240;
+    --hero-watermark:  rgba(242,242,240,0.045);
+    --luz-fuerte: 0.5;
+    --luz-media:  0.32;
+    --luz-suave:  0.16;
+    /* Grano de película: ruido monocromo que se superpone a las luces coral. */
+    --grano: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+    --grano-opacidad: 0.5;
     --radius-lg: 22px;
     --radius-md: 14px;
     --radius-sm: 8px;
     --maxw: 1440px;
+    --header-h: 77px; /* padding 16×2 + botón 44px + borde 1px de .site-header */
     --space-3xs: 4px;
     --space-2xs: 8px;
     --space-xs:  10px;
@@ -35,60 +71,46 @@
     --space-5xl: 56px;
     --space-6xl: 76px;
     --space-7xl: 96px;
-    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --font-display: "Instrument Sans", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-label: "Barlow Condensed", sans-serif;
+    --font-ui: "Outfit", sans-serif;
+    --font-mono: "Barlow Condensed", sans-serif;
   }
 
-  /* Modo oscuro: sigue la preferencia del sistema si el usuario no eligió explícitamente */
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:      #10161F;
-      --paper-alt:  #182130;
-      --ink:        #EEF1F6;
-      --ink-soft:   #9AA7B8;
-      --teal:       #35B39C;
-      --line:       #62728A;
-      --focus:      #35B39C;
-      --error:      #FF6B5E;
-      --header-bg:  rgba(16,22,31,0.88);
-    }
+  /* Modo claro: variante secundaria, elegida a mano por el usuario y persistida en
+     localStorage vía js/theme.js (ver ts/theme.ts). El script anti-FOUC en el <head> de
+     cada página siempre deja `data-theme="dark"` o `data-theme="light"` explícito antes del
+     primer paint, así que este selector (no un @media) es el que manda en modo claro. */
+  :root[data-theme="light"]{
+    --paper:      #F2F2F0;
+    --paper-alt:  #E7E7E4;
+    --ink:        #0D0D0D;
+    /* Slate/ash se intercambian respecto al modo oscuro: en fondo claro el tono oscuro
+       (slate) es el más legible/jerárquico, y el claro (ash) queda subordinado. */
+    /* Antes --ink-soft #6B6B6B (4.3:1 sobre --paper-alt) y --ink-subtle #ABABAB (1.9:1):
+       ninguno pasaba AA. Ahora #4A4A4A (7.1:1) y #5F5F5F (5.2:1). */
+    --ink-soft:   #4A4A4A;
+    --ink-subtle: #5F5F5F;
+    /* Coral de texto sobre fondo claro: #F06A50 daba 2.7:1; #B8341A da 4.8–5.3:1. */
+    --accent-text: #B8341A;
+    --line:       #D6D6D3;
+    --focus:      #E35336;
+    --error:      #B3261E;
+    --header-bg:  rgba(242,242,240,0.92);
+    /* Hero en modo claro: grid y marca de agua en tinta, y resplandor coral más tenue
+       (sobre fondo claro el mismo alfa se lee mucho más saturado que sobre negro). */
+    --hero-grid-rgb:   13,13,13;
+    --hero-watermark:  rgba(13,13,13,0.05);
+    --luz-fuerte: 0.26;
+    --luz-media:  0.16;
+    --luz-suave:  0.08;
+    --grano-opacidad: 0.34; /* sobre fondo claro el ruido se nota más que sobre negro */
   }
-  /* Elección manual del usuario (persistida en localStorage vía js/theme.js) gana siempre */
-  :root[data-theme="dark"]{
-    --paper:      #10161F;
-    --paper-alt:  #182130;
-    --ink:        #EEF1F6;
-    --ink-soft:   #9AA7B8;
-    --teal:       #35B39C;
-    --line:       #62728A;
-    --focus:      #35B39C;
-    --error:      #FF6B5E;
-    --header-bg:  rgba(16,22,31,0.88);
-  }
-  /* --teal-dark se mantiene oscuro a propósito (fondos/hover); estos dos usos lo pintan
-     como texto, así que en modo oscuro necesitan el --teal más claro para seguir siendo legibles. */
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .eyebrow,
-    :root:not([data-theme="light"]) .form-feedback.is-success{
-      color: var(--teal);
-    }
-  }
-  :root[data-theme="dark"] .eyebrow,
-  :root[data-theme="dark"] .form-feedback.is-success{
-    color: var(--teal);
-  }
-  /* --cta-surface también queda fijo, así que en modo oscuro coincide en luminancia con el
-     fondo de página (--paper oscuro) y se volvería invisible sin un borde propio. */
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .contacto,
-    :root:not([data-theme="light"]) .btn-primary,
-    :root:not([data-theme="light"]) .nav-cta{
-      border: 1px solid var(--teal);
-    }
-  }
-  :root[data-theme="dark"] .contacto,
+  /* --cta-surface queda fijo en negro; en modo oscuro coincide en luminancia con el fondo de
+     página (--paper también oscuro) y se volvería invisible sin un borde propio. */
   :root[data-theme="dark"] .btn-primary,
-  :root[data-theme="dark"] .nav-cta{
-    border: 1px solid var(--teal);
+  :root[data-theme="dark"] .nav-cta,
+  :root[data-theme="dark"] .caso-figure{
+    border: 1px solid var(--accent);
   }

@@ -24,31 +24,32 @@
   }catch(e){}
 })();
 </script>
-<title>Vitrina — Creamos tu tienda en línea</title>
+<title>Vitrina Studio — Diseñamos y construimos tu tienda en línea</title>
 <meta name="description" content="Vitrina diseña y construye tiendas de e-commerce a medida: catálogo, pagos y logística listos para vender desde el primer día.">
 <link rel="canonical" href="https://www.vitrina.com/index.html">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.vitrina.com/index.html">
-<meta property="og:title" content="Vitrina — Creamos tu tienda en línea">
+<meta property="og:title" content="Vitrina Studio — Diseñamos y construimos tu tienda en línea">
 <meta property="og:description" content="Vitrina diseña y construye tiendas de e-commerce a medida: catálogo, pagos y logística listos para vender desde el primer día.">
 <meta property="og:image" content="https://www.vitrina.com/img/EcommerExample.png">
 <meta property="og:image:alt" content="Vista previa de una tienda en línea creada por Vitrina">
 <meta property="og:locale" content="es_EC">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vitrina — Creamos tu tienda en línea">
+<meta name="twitter:title" content="Vitrina Studio — Diseñamos y construimos tu tienda en línea">
 <meta name="twitter:description" content="Vitrina diseña y construye tiendas de e-commerce a medida: catálogo, pagos y logística listos para vender desde el primer día.">
 <meta name="twitter:image" content="https://www.vitrina.com/img/EcommerExample.png">
 <meta name="twitter:image:alt" content="Vista previa de una tienda en línea creada por Vitrina">
 
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/styles.css">
 <script src="js/theme.js" defer></script>
 <script src="js/validacion-contacto.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/animaciones.js" defer></script>
-<script src="js/tilt-hero.js" defer></script>
+<script src="js/hero-marca.js" defer></script>
 
 <!-- Paste this right before your closing </head> tag -->
 <script type="text/javascript">
@@ -103,43 +104,44 @@
 
 <main id="main">
 
-  <!-- HERO VIDEO -->
-  <section class="hero-video" aria-labelledby="hero-video-heading">
-    <video class="hero-video-bg" src="video/HeroVideo.compressed.mp4" poster="img/EcommerExample.png" autoplay muted loop playsinline aria-hidden="true"></video>
-    <div class="hero-video-overlay" aria-hidden="true"></div>
-    <div class="container hero-video-inner">
-      <h1 id="hero-video-heading">Que tu negocio trabaje para ti, no tú para él</h1>
-    </div>
-  </section>
+  <!-- HERO DE MARCA -->
+  <section class="hero-brand" aria-labelledby="hero-brand-heading">
+    <div class="hero-brand-glow luz-granulada" aria-hidden="true"></div>
+    <canvas class="hero-brand-grid" aria-hidden="true"></canvas>
+    <div class="hero-brand-watermark" aria-hidden="true">VITRINA</div>
+    <div class="container hero-brand-inner">
+      <p class="hero-brand-kicker">
+        <span class="hero-brand-kicker-label">Especialistas en</span>
+        <span class="hero-brand-typed" data-palabras="conversión|performance|tiendas que venden|SEO real|diseño no-genérico|ventas automatizadas" aria-hidden="true"><span class="hero-brand-typed-text">conversión</span><span class="hero-brand-caret"></span></span>
+        <span class="sr-only">conversión, performance, tiendas que venden, SEO real, diseño no-genérico y ventas automatizadas</span>
+      </p>
 
-  <!-- PRESENTACIÓN -->
-  <section class="hero" aria-labelledby="presentacion-heading">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">Creación de tiendas en línea</p>
-        <h2 id="presentacion-heading">Convierte tu negocio en una <em>tienda</em> que vende sola</h2>
-        <p class="hero-lead">Diseñamos, construimos y ponemos en marcha tu e-commerce: catálogo, pagos, envíos y una vitrina digital que tus clientes van a querer visitar.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contacto">Empieza tu tienda</a>
-          <a class="btn btn-ghost" href="proyectos.html">Ver proyectos</a>
+      <div class="hero-brand-main">
+        <!-- Grupo 1 (proximidad): identidad — eyebrow + logotipo + bajada de marca -->
+        <div class="hero-brand-identity">
+          <p class="hero-brand-eyebrow">Infraestructura digital fuera de la caja</p>
+          <h1 id="hero-brand-heading" class="hero-brand-logo" aria-label="Vitrina Studio">
+            <span aria-hidden="true">
+              <span class="hero-brand-letter" style="--i:0">v</span><span class="hero-brand-letter" style="--i:1">i</span><span class="hero-brand-letter" style="--i:2">t</span><span class="hero-brand-letter" style="--i:3">r</span><span class="hero-brand-letter" style="--i:4">i</span><span class="hero-brand-letter" style="--i:5">n</span><span class="hero-brand-letter" style="--i:6">a</span>
+            </span>
+          </h1>
+          <p class="hero-brand-sub">
+            <span class="hero-brand-studio">Studio</span>
+            <span class="hero-brand-tagline">Diseño · SEO real · Ventas automatizadas</span>
+          </p>
+        </div>
+
+        <!-- Grupo 2 (proximidad): propuesta + acción -->
+        <div class="hero-brand-pitch">
+          <p class="hero-brand-desc">Construimos tiendas de e-commerce que cargan rápido, se encuentran en Google y venden sin que estés despierto. Nada de plantillas con el logo cambiado.</p>
+          <div class="hero-brand-actions">
+            <a class="btn btn-solid" href="#contacto">Empieza tu tienda</a>
+            <a class="btn btn-ghost" href="proyectos.html">Ver proyectos</a>
+          </div>
         </div>
       </div>
-
-      <div class="hero-showcase">
-        <figure class="hero-media">
-          <img
-          src="img/EcommerExample.png"
-          alt="Vista previa de la tienda Casa Verde"
-          width="1400"
-          height="1050"
-          loading="lazy"
-          decoding="async"
-          >
-        </figure>
-      </div>
     </div>
   </section>
-  
 
   <!-- SERVICIOS -->
   <section id="servicios" class="section section-alt" aria-labelledby="servicios-heading">
@@ -183,7 +185,7 @@
   </section>
 
   <!-- CÓMO TRABAJAMOS -->
-  <section id="como-trabajamos" class="section" aria-labelledby="como-trabajamos-heading">
+  <section id="como-trabajamos" class="section section-bombilla" aria-labelledby="como-trabajamos-heading">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Cómo trabajamos</p>
@@ -219,14 +221,18 @@
             <p>Publicamos tu tienda y la dejamos lista para recibir tus primeros pedidos reales.</p>
           </article>
         </li>
-        <li class="proceso-card">
-          <article>
-            <span class="proceso-num" aria-hidden="true">05</span>
-            <h3>Acompañamiento</h3>
-            <p>Seguimos disponibles después del lanzamiento para ajustar lo que tu tienda necesite.</p>
-          </article>
-        </li>
       </ol>
+    </div>
+
+    <div class="bombilla" aria-hidden="true">
+      <div class="bombilla-luz luz-granulada"></div>
+      <svg class="bombilla-trazo" viewBox="0 0 120 200" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M45 132C45 116 39 110 31 100C23 90 17 78 17 63C17 37 36 17 60 17C84 17 103 37 103 63C103 78 97 90 89 100C81 110 75 116 75 132"/>
+        <path d="M45 132L47 166C47 172 53 177 60 177C67 177 73 172 73 166L75 132"/>
+        <path d="M45.7 144H74.3"/>
+        <path d="M46.4 156H73.6"/>
+        <path d="M50 120V96L55 82L60 98L65 82L70 96V120"/>
+      </svg>
     </div>
   </section>
 
@@ -321,17 +327,6 @@
             </cite>
           </article>
         </li>
-        <li class="testimonio-card">
-          <article>
-            <blockquote>
-              <p>Ahora nuestros clientes reservan el mantenimiento de su bicicleta en línea y solo pasan a retirarla. El equipo dejó de perder tiempo coordinando citas por teléfono.</p>
-            </blockquote>
-            <cite>
-              <span class="testimonio-nombre">Sofía Vintimilla</span>
-              <span class="testimonio-rol">Gerente general, Rueda Bikes</span>
-            </cite>
-          </article>
-        </li>
       </ul>
     </div>
   </section>
@@ -364,21 +359,23 @@
         </div>
 
         <div class="contacto-form-wrap">
-          <form class="form-contacto" novalidate>
+          <form class="form-contacto" novalidate aria-describedby="form-nota">
+            <p class="form-nota" id="form-nota">Todos los campos son obligatorios.</p>
             <div class="form-field">
               <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="nombre-error">
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required aria-describedby="nombre-error" placeholder="Ej. María Fernanda Ochoa">
               <span class="form-error" id="nombre-error" role="alert"></span>
             </div>
             <div class="form-field">
               <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+              <input type="email" id="email" name="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" required aria-describedby="email-error" placeholder="Ej. maria.ochoa@correo.com">
               <span class="form-error" id="email-error" role="alert"></span>
             </div>
             <div class="form-field">
               <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required pattern="[0-9+\s-]{7,15}" title="Ingresa entre 7 y 15 dígitos, puede incluir + y espacios" aria-describedby="telefono-error" placeholder="0999999999">
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s-]{7,15}" aria-describedby="telefono-error telefono-hint" placeholder="Ej. 099 123 4567">
               <span class="form-error" id="telefono-error" role="alert"></span>
+              <span class="form-hint" id="telefono-hint">Ejemplo: 099 123 4567 (7 a 15 dígitos, puede incluir + y espacios)</span>
             </div>
             <div class="form-field">
               <label for="plan">¿Qué plan te interesa?</label>
@@ -411,7 +408,7 @@
     <div class="footer-grid">
       <div class="footer-desc">
         <h3 id="footer-desc-heading">Vitrina</h3>
-        <p aria-labelledby="footer-desc-heading">Diseñamos y construimos tiendas de e-commerce a medida, desde el catálogo hasta el pago.</p>
+        <p>Diseñamos y construimos tiendas de e-commerce a medida, desde el catálogo hasta el pago.</p>
       </div>
       <nav aria-labelledby="footer-contacto-heading">
         <h3 id="footer-contacto-heading">Contacto</h3>

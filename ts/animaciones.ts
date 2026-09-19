@@ -2,27 +2,30 @@ declare const gsap: any;
 declare const ScrollTrigger: any;
 
 document.addEventListener("DOMContentLoaded", () => {
+  // La bombilla de "cómo trabajamos" se enciende al entrar en pantalla. Va antes de los
+  // guards de GSAP para que también funcione si la CDN no cargó; con movimiento reducido,
+  // el CSS deja la luz encendida sin animarla.
+  const bombilla = document.querySelector<HTMLElement>(".bombilla");
+  if (bombilla) {
+    if (typeof IntersectionObserver === "undefined") {
+      bombilla.classList.add("is-visible");
+    } else {
+      const observador = new IntersectionObserver(
+        (entradas) => {
+          if (!entradas.some((entrada) => entrada.isIntersecting)) return;
+          bombilla.classList.add("is-visible");
+          observador.disconnect();
+        },
+        { threshold: 0.2 }
+      );
+      observador.observe(bombilla);
+    }
+  }
+
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   gsap.registerPlugin(ScrollTrigger);
-
-  // Video de portada: se encoge y redondea apenas se empieza a hacer scroll,
-  // como si pasara de ocupar toda la pantalla a quedar enmarcado igual que el resto del contenido.
-  if (document.querySelector(".hero-video")) {
-    ScrollTrigger.create({
-      trigger: ".hero-video",
-      start: "top top",
-      end: "+=350",
-      scrub: true,
-      animation: gsap.to(".hero-video", {
-        marginLeft: 24,
-        marginRight: 24,
-        borderRadius: 40,
-        ease: "none",
-      }),
-    });
-  }
 
   // Tarjetas: entran en secuencia desde abajo, en cualquier tamaño de pantalla.
   document

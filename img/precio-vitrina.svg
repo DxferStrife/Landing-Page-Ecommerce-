@@ -1,4 +1,5 @@
 <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <!-- Paleta anterior: acento dorado #F2A93B, trazo teal #14544A. Ahora coral #E35336 / ghost #F2F2F0 (marca). -->
   <g fill="rgba(255,255,255,0.16)">
     <rect x="59" y="26" width="60" height="60" rx="8"/>
     <rect x="133" y="26" width="60" height="60" rx="8"/>
@@ -12,6 +13,6 @@
     <rect x="133" y="174" width="60" height="60" rx="8"/>
     <rect x="207" y="174" width="60" height="60" rx="8"/>
   </g>
-  <rect x="281" y="174" width="60" height="60" rx="8" fill="#F2A93B"/>
-  <path d="M296 200 h30 M296 210 h20" stroke="#14544A" stroke-width="4" stroke-linecap="round"/>
+  <rect x="281" y="174" width="60" height="60" rx="8" fill="#E35336"/>
+  <path d="M296 200 h30 M296 210 h20" stroke="#F2F2F0" stroke-width="4" stroke-linecap="round"/>
 </svg>
